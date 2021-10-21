@@ -1,0 +1,11 @@
+name: 'social_media_reporting'
+version: '0.1.0'
+config-version: 2
+require-dbt-version: ">=0.20.0"
+
+vars:
+  twitter_posts_report: "{{ ref('twitter_organic__tweets') }}"
+  facebook_posts_report: "{{ ref('facebook_pages__posts_report') }}"
+  linkedin_posts_report: "{{ ref('linkedin_pages__posts') }}"
+  instagram_posts_report: "{{ ref('instagram_business__posts') }}"
+

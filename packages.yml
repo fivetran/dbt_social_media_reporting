@@ -1,0 +1,5 @@
+packages:
+  - git: "https://github.com/fivetran/dbt_facebook_pages"
+  - git: "https://github.com/fivetran/dbt_instagram_business"
+  - git: "https://github.com/fivetran/dbt_twitter_organic"
+  - git: "https://github.com/fivetran/dbt_linkedin_pages"
