@@ -6,9 +6,11 @@ with report as (
 ), fields as (
 
     select        
+        organization_id as page_id,
+        organization_name as page_name,
         ugc_post_id as post_id,
         created_timestamp,
-        title_text as post_message,
+        coalesce(title_text, specific_content_share_commentary_text) as post_message,
         original_url as post_url,
         sum(click_count) as clicks,
         sum(comment_count) as comments,
@@ -16,7 +18,7 @@ with report as (
         sum(like_count) as likes,
         sum(share_count) as shares
     from report
-    {{ dbt_utils.group_by(4) }}
+    {{ dbt_utils.group_by(6) }}
 
 )
 

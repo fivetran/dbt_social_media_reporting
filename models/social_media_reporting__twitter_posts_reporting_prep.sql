@@ -14,7 +14,8 @@ with report as (
         sum(clicks) as clicks,
         sum(impressions) as impressions,
         sum(likes) as likes,
-        sum(retweets) as shares
+        sum(retweets) as shares,
+        sum(replies) as comments
     from report
     {{ dbt_utils.group_by(5) }}
 
