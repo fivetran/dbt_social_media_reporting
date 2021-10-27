@@ -9,13 +9,14 @@ with report as (
         created_timestamp,
         post_id,
         post_message,
+        post_url,
         page_id,
         page_name,
         sum(clicks) as clicks,
         sum(impressions) as impressions,
         sum(likes) as likes
     from report
-    {{ dbt_utils.group_by(5) }}
+    {{ dbt_utils.group_by(6) }}
 
 )
 
