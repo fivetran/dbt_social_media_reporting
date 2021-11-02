@@ -12,11 +12,11 @@ with report as (
         created_timestamp,
         post_url,
         coalesce(title_text, specific_content_share_commentary_text) as post_message,
-        sum(click_count) as clicks,
-        sum(comment_count) as comments,
-        sum(impression_count) as impressions,
-        sum(like_count) as likes,
-        sum(share_count) as shares
+        coalesce(sum(click_count),0) as clicks,
+        coalesce(sum(comment_count),0) as comments,
+        coalesce(sum(impression_count),0) as impressions,
+        coalesce(sum(like_count),0) as likes,
+        coalesce(sum(share_count),0) as shares
     from report
     {{ dbt_utils.group_by(6) }}
 

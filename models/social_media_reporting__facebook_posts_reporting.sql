@@ -12,9 +12,9 @@ with report as (
         post_url,
         page_id,
         page_name,
-        sum(clicks) as clicks,
-        sum(impressions) as impressions,
-        sum(likes) as likes
+        coalesce(sum(clicks),0) as clicks,
+        coalesce(sum(impressions),0) as impressions,
+        coalesce(sum(likes),0) as likes
     from report
     {{ dbt_utils.group_by(6) }}
 
