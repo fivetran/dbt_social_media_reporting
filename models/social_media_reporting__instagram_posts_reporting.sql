@@ -1,3 +1,5 @@
+{{ config(enabled=var('social_media_rollup__instagram_enabled')) }}
+
 with report as (
 
     select *
