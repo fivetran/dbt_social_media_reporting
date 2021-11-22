@@ -16,7 +16,7 @@ This package contains a number of models, which all build up to the final `socia
 
 | **model**    | **description**                                                                                                        |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| social_media_reporting__rollup_report | Each record represents a post from a social media account across selected connectors, including post metadata and metrics. |
+| [social_media_reporting__rollup_report](https://github.com/fivetran/dbt_social_media_reporting/blob/main/models/social_media_reporting__rollup_report.sql) | Each record represents a post from a social media account across selected connectors, including post metadata and metrics. |
 
 ## Installation Instructions
 Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
@@ -33,7 +33,7 @@ packages:
 
 ### Connector selection
 
-The package assumes that all connector models are enabled, so it will look to pull data from all of the connectors listed above. If you don't want to use certain connectors, disable those connectors' models in this package by setting the relevant variables to `false`:
+The package assumes that all connector models are enabled, so it will look to pull data from all of the connectors [listed above](https://github.com/fivetran/dbt_social_media_reporting#social-media-reporting). If you don't want to use certain connectors, disable those connectors' models in this package by setting the relevant variables to `false`:
 
 ```yml
 # dbt_project.yml
@@ -126,7 +126,7 @@ vars:
     instagram_business_union_databases: ['instagram_business_one', 'instagram_business_two', 'instagram_business_three']
     twitter_organic_union_databases: ['twitter_social_one', 'twitter_social_two', 'twitter_social_three', 'twitter_social_four']
 ```
-For more configuration information, see the relevant connectors (listed above).
+For more configuration information, see the relevant connectors ([listed above](https://github.com/fivetran/dbt_social_media_reporting#social-media-reporting)).
 
 ## Database Support
 
