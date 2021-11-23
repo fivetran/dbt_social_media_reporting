@@ -4,6 +4,7 @@ with report as (
 
     select *
     from {{ var('facebook_posts_report') }}
+    where is_most_recent_record = True
 
 ), fields as (
 
