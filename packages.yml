@@ -1,8 +1,7 @@
 packages:
-  # - git: "https://github.com/fivetran/dbt_facebook_pages"
-  #   revision: "master"
-  #   warn-unpinned: false
-  - local: ../Facebook_Pages/dbt_facebook_pages
+  - git: "https://github.com/fivetran/dbt_facebook_pages"
+    revision: "main"
+    warn-unpinned: false
   - git: "https://github.com/fivetran/dbt_instagram_business"
     revision: "main"
     warn-unpinned: false
