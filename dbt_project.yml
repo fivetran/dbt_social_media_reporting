@@ -14,3 +14,8 @@ vars:
   social_media_rollup__linkedin_enabled: true
   social_media_rollup__instagram_enabled: true
 
+models:
+  social_media_reporting:
+    +schema: social_media_reporting
+    +materialized: table
+

@@ -29,6 +29,9 @@ packages:
     version: [">=0.1.0", "<0.2.0"]
 ```
 
+## Package Maintenance
+The Fivetran team maintaining this package **only** maintains the latest version. We highly recommend you keep your `packages.yml` updated with the [dbt hub latest version](https://hub.getdbt.com/fivetran/social_media_reporting/latest/). You may refer to the [CHANGELOG](/CHANGELOG.md) and release notes for more information on changes across versions.
+
 ## Configuration
 
 ### Connector selection
