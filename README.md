@@ -1,7 +1,7 @@
 [![Apache License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![dbt logo and version](https://img.shields.io/static/v1?logo=dbt&label=dbt-version&message=0.20.x&color=orange)
 # Social Media Reporting
 
-This dbt package aggregates and models data from multiple Fivetran social media connectors. The package standardizes the schemas from the various social media connectors and creates a single reporting model for all activity. It enables you to analyze your post performance via clicks, impressions, shares, likes and comments.
+This dbt package aggregates and models data from multiple Fivetran social media connectors. The package standardizes the schemas from the various social media connectors and creates a single reporting model for all activity. It enables you to analyze your post performance by clicks, impressions, shares, likes, and comments.
 
 Currently, this package supports the following social media connector types:
 > NOTE: You do _not_ need to have all of these connector types to use this package, though you should have at least two.
@@ -12,7 +12,7 @@ Currently, this package supports the following social media connector types:
 
 ## Models
 
-This package contains a number of models, which all build up to the final `social_media_reporting` model. The `social_media_reporting` model combines the data from all of the above connectors. A dependency on all the required dbt packages is declared in this package's `packages.yml` file, so it will automatically download them when you run `dbt deps`. The primary outputs of this package are described below.
+This package contains a number of models, which all build up to the final `social_media_reporting` model. The `social_media_reporting` model combines the data from all of the connectors. A dependency on all the required dbt packages is declared in this package's `packages.yml` file, so it will automatically download them when you run `dbt deps`. The primary outputs of this package are described below.
 
 | **model**    | **description**                                                                                                        |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------- |
@@ -30,7 +30,7 @@ packages:
 ```
 
 ## Package Maintenance
-The Fivetran team maintaining this package **only** maintains the latest version. We highly recommend you keep your `packages.yml` updated with the [dbt hub latest version](https://hub.getdbt.com/fivetran/social_media_reporting/latest/). You may refer to the [CHANGELOG](/CHANGELOG.md) and release notes for more information on changes across versions.
+The Fivetran team maintaining this package **only** maintains the latest version. We highly recommend that you keep your `packages.yml` file updated with the [latest version in the dbt hub](https://hub.getdbt.com/fivetran/social_media_reporting/latest/). Read the [CHANGELOG](/CHANGELOG.md) and release notes for more information on changes across versions.
 
 ## Configuration
 
@@ -50,9 +50,11 @@ vars:
     social_media_rollup__linkedin_enabled: False
     social_media_rollup__instagram_enabled: False
 ```
+
 Next, you must disable the models in the unwanted connector's related package, which has its own configuration. Disable the relevant models under the models section of your `dbt_project.yml` file by setting the `enabled` value to `false`. 
 
-**Only include the models you want to disable.  Default values are generally `true` but that is not always the case.**
+_Only include the models you want to disable.  Default values are generally `true` but that is not always the case._
+
 ```yml
 models:
     # disable both instagram business models if not using instagram business
@@ -81,7 +83,7 @@ models:
 ```
 ### Data Location
 
-By default, this package looks for your Social Media data in your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your social media data is stored, add the relevant `_database` variables to your `dbt_project.yml` file (see below). 
+By default, this package looks for your social media data in your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your social media data is stored, add the relevant `_database` variables to your `dbt_project.yml` file (see below). 
 
 By default, this package also looks for specific schemas from each of your connectors. The schemas from each connector are highlighted in the code snippet below. If your data is stored in a different schema, add the relevant `_schema` variables to your `dbt_project.yml` file:
 
@@ -110,30 +112,32 @@ vars:
 ```
 
 ### Unioning Multiple Social Media Connectors
-If you have multiple Social Media connectors in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table(s) into the reporting model. You will be able to see which source it came from in the `source_relation` column(s) of each model. To use this functionality, you will need to set either (**note that you cannot use both**) the `union_schemas` or `union_databases` variables:
+If you have multiple social media connectors in Fivetran, you can use this package on all of them simultaneously. The package will union all of the data together and then pass the unioned table(s) into the reporting model. You will be able to see which source the data came from in the `source_relation` column of each model. To use this functionality, you will need to set either the `union_schemas` or `union_databases` variables:
+
+> IMPORTANT: You _cannot_ use both the `union_schemas` and `union_databases` variables.
 
 ```yml
 # dbt_project.yml
 ...
 config-version: 2
 vars:
-    ##You may set EITHER the schemas variables below
+    ##Schemas variables
     facebook_pages_union_schemas: ['facebook_pages_one','facebook_pages_two']
     linkedin_pages_union_schemas: ['linkedin_company_pages_one', 'linkedin_company_pages_two']
     instagram_business_union_schemas: ['instagram_business_one', 'instagram_business_two', 'instagram_business_three']
     twitter_organic_union_schemas: ['twitter_social_one', 'twitter_social_two', 'twitter_social_three', 'twitter_social_four']
 
-    ##Or may set EITHER the databases variables below
+    ##Databases variables
     facebook_pages_union_databases: ['facebook_pages_one','facebook_pages_two']
     linkedin_pages_union_databases: ['linkedin_company_pages_one', 'linkedin_company_pages_two']
     instagram_business_union_databases: ['instagram_business_one', 'instagram_business_two', 'instagram_business_three']
     twitter_organic_union_databases: ['twitter_social_one', 'twitter_social_two', 'twitter_social_three', 'twitter_social_four']
 ```
-For more configuration information, see the relevant connectors ([listed above](https://github.com/fivetran/dbt_social_media_reporting#social-media-reporting)).
+For more configuration information, see the individual connector dbt packages ([listed above](https://github.com/fivetran/dbt_social_media_reporting#social-media-reporting)).
 
 ## Database Support
 
-This package has been tested on BigQuery, Snowflake, Redshift, Postgres, and Databricks.
+This package has been tested on BigQuery, Snowflake, Redshift, PostgreSQL, and Databricks.
 
 ### Databricks Dispatch Configuration
 dbt `v0.20.0` introduced a new project-level dispatch configuration that enables an "override" setting for all dispatched macros. If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
