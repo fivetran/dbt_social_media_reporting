@@ -30,7 +30,7 @@ packages:
 ```
 
 ## Package Maintenance
-The Fivetran team maintaining this package **only** maintains the latest version. We highly recommend that you keep your `packages.yml` file updated with the [dbt hub's latest version](https://hub.getdbt.com/fivetran/social_media_reporting/latest/). Read the [CHANGELOG](/CHANGELOG.md) and release notes for more information on changes across versions.
+The Fivetran team maintaining this package **only** maintains the latest version. We highly recommend that you keep your `packages.yml` file updated with the [latest version in the dbt hub](https://hub.getdbt.com/fivetran/social_media_reporting/latest/). Read the [CHANGELOG](/CHANGELOG.md) and release notes for more information on changes across versions.
 
 ## Configuration
 
