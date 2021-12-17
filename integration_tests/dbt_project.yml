@@ -25,7 +25,7 @@ vars:
 dispatch:
   - macro_namespace: dbt_utils
     search_order: ['spark_utils', 'dbt_utils']
-
+    
 seeds:
   social_media_rollup_integration_tests:
     twitter_organic_tweet_data:
@@ -63,7 +63,7 @@ seeds:
         post_id: "{{ 'string' if target.type in ['bigquery','spark'] else 'varchar' }}"
     facebook_pages_page_data:
       +column_types:
-        id: "{{ 'string' if target.type == 'bigquery' else 'varchar' }}"
+        id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
     facebook_pages_daily_page_metrics_total_data:
       +column_types:
         page_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"

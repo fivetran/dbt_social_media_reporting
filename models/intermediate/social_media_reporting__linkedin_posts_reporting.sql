@@ -10,7 +10,7 @@ with report as (
     select        
         organization_id as page_id,
         organization_name as page_name,
-        ugc_post_id as post_id,
+        cast(ugc_post_id  as {{ dbt_utils.type_string() }}) as post_id,
         created_timestamp,
         post_url,
         source_relation,

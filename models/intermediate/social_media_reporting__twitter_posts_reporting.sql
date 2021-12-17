@@ -9,7 +9,7 @@ with report as (
 
     select        
         created_timestamp,
-        organic_tweet_id as post_id,
+        cast(organic_tweet_id as {{ dbt_utils.type_string() }}) as  post_id,
         tweet_text as post_message,
         account_id as page_id,
         account_name as page_name,
