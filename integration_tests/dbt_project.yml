@@ -63,7 +63,7 @@ seeds:
         post_id: "{{ 'string' if target.type in ['bigquery','spark'] else 'varchar' }}"
     facebook_pages_page_data:
       +column_types:
-        id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+        id: "{{ 'string' if target.type == 'bigquery' else 'varchar' }}"
     facebook_pages_daily_page_metrics_total_data:
       +column_types:
         page_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
