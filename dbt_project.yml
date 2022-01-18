@@ -1,7 +1,7 @@
 name: 'social_media_reporting'
 version: '0.1.0'
 config-version: 2
-require-dbt-version: ">=0.20.0"
+require-dbt-version: [">=1.0.0", "<2.0.0"]
 
 vars:
   twitter_posts_report: "{{ ref('twitter_organic__tweets') }}"
