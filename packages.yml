@@ -1,13 +1,9 @@
 packages:
-  - git: "https://github.com/fivetran/dbt_facebook_pages"
-    revision: "main"
-    warn-unpinned: false
-  - git: "https://github.com/fivetran/dbt_instagram_business"
-    revision: "main"
-    warn-unpinned: false
-  - git: "https://github.com/fivetran/dbt_twitter_organic"
-    revision: "main"
-    warn-unpinned: false
-  - git: "https://github.com/fivetran/dbt_linkedin_pages"
-    revision: "main"
-    warn-unpinned: false
+  - package: fivetran/facebook_pages
+    version: [">=0.1.0", "<0.2.0"]
+  - package: fivetran/instagram_business
+    version: [">=0.1.0", "<0.2.0"]
+  - package: fivetran/twitter_organic
+    version: [">=0.1.0", "<0.2.0"]
+  - package: fivetran/linkedin_pages
+    version: [">=0.1.0", "<0.2.0"]
