@@ -16,36 +16,37 @@ body:
           required: true
   - type: textarea
     attributes:
-      label: Current Behavior
-      description: A concise description of what you're experiencing.
+      label: Describe the issue
+      description: A concise description of the problem you're experiencing. Also, please provide the steps to reproduce the issue if applicable.
     validations:
       required: true
-  - type: textarea
-    attributes:
-      label: Expected Behavior
-      description: A concise description of what you expected to happen.
-    validations:
-      required: true
-  - type: textarea
-    attributes:
-      label: Steps To Reproduce
-      description: Steps to reproduce the behavior.
-      placeholder: |
-        1. In this environment...
-        2. With this config...
-        3. Run '...'
-        4. See error...
-    validations:
-      required: false
   - type: textarea
     id: logs
     attributes:
-      label: Relevant log output
+      label: Relevant error log or model output
       description: |
-        If applicable, log output to help explain your problem.
+        If applicable, provide the relevant error log or problematic model output.
       render: shell
     validations:
       required: false
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: A concise description of what you expected to happen.
+    validations:
+      required: true
+ - type: textarea
+    attributes:
+      label: dbt Project configurations
+      description: Please provide the variables and any other project specific configurations from your `dbt_project.yml`.
+    validations:
+      required: true
+ - type: textarea
+    attributes:
+      label: Package versions
+      description: Please provide the contents of your `packages.yml`.
+    validations:
+      required: true
   - type: dropdown
     id: database
     attributes:
