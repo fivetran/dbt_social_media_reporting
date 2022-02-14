@@ -63,7 +63,7 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: Please provide the contents of the command `dbt --version` and/or the `dbtVersion` config in your `deployment.yml` if applicable.
+      label: dbt Version
       description: Run `dbt --version` in your CLI or dbt cloud environment and copy the contents. Additionally, if you are using Fivetran dbt Transformations, provide the contents of the `dbtVersion` configuration in your `deployment.yml`.
     validations:
       required: true
