@@ -35,14 +35,14 @@ body:
       description: A concise description of what you expected to happen.
     validations:
       required: true
- - type: textarea
-   attributes:
+  - type: textarea
+    attributes:
       label: dbt Project configurations
       description: Please provide the variables and any other project specific configurations from your `dbt_project.yml`.
     validations:
       required: true
- - type: textarea
-   attributes:
+  - type: textarea
+    attributes:
       label: Package versions
       description: Please provide the contents of your `packages.yml`.
     validations:
