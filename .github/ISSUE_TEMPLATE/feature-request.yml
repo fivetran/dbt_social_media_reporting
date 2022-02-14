@@ -17,7 +17,7 @@ body:
   - type: textarea
     attributes:
       label: Describe the Feature
-      description: A clear and concise description of what you want to happen why you want the new feature.
+      description: A clear and concise description of what you want to happen and why you want the new feature.
     validations:
       required: true
   - type: textarea
@@ -31,13 +31,14 @@ body:
     attributes:
       label: Who will this benefit?
       description: |
-        What kind of use case will this feature be useful for? Please be specific and provide examples, this will help us prioritize properly.
+        Will this feature benefit all users of the package? Please be specific and provide examples, this will help us prioritize properly.
     validations:
       required: true
   - type: checkboxes
     id: contributing
     attributes:
       label: Are you interested in contributing this feature?
+      description: Our team will scope out this feature and add to a future sprint. However, if you would like to expedite the feature, we encourage you to contribute to the package via a PR. Our team will then work with you to approve and merge your contributions as soon as possible.
       options:
         - label: Yes.
         - label: Yes, but I will need assistance and will schedule time during your [office hours](https://calendly.com/fivetran-solutions-team/fivetran-solutions-team-office-hours) for guidance.
