@@ -25,6 +25,8 @@ vars:
 models:
   social_media_reporting:
     +materialized: table
+  linkedin_pages_source:
+    +materialized: table
 
 dispatch:
   - macro_namespace: dbt_utils
