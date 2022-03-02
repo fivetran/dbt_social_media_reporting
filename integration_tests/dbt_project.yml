@@ -21,6 +21,10 @@ vars:
   page: "{{ ref('facebook_pages_page_data') }}"
   lifetime_post_metrics_total: "{{ ref('facebook_pages_lifetime_post_metrics_total_data') }}"
   daily_page_metrics_total: "{{ ref('facebook_pages_daily_page_metrics_total_data') }}"
+  
+models:
+  dbt_social_media_reporting:
+    +materialized: table
 
 dispatch:
   - macro_namespace: dbt_utils
