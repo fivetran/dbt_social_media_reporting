@@ -23,7 +23,7 @@ vars:
   daily_page_metrics_total: "{{ ref('facebook_pages_daily_page_metrics_total_data') }}"
   
 models:
-  dbt_social_media_reporting:
+  social_media_reporting:
     +materialized: table
 
 dispatch:
