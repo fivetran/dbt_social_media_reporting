@@ -5,5 +5,8 @@ packages:
     version: [">=0.1.0", "<0.2.0"]
   - package: fivetran/twitter_organic
     version: [">=0.1.0", "<0.2.0"]
-  - package: fivetran/linkedin_pages
-    version: [">=0.1.0", "<0.2.0"]
+  # - package: fivetran/linkedin_pages
+  #   version: [">=0.1.0", "<0.2.0"]
+  - git: https://github.com/fivetran/dbt_linkedin_pages_source.git
+    revision: bugfix/materialze-table
+    warn-unpinned: false
