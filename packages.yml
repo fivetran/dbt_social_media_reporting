@@ -1,9 +1,9 @@
 packages:
-  - package: fivetran/facebook_pages
-    version: [">=0.1.0", "<0.2.0"]
-  - package: fivetran/instagram_business
-    version: [">=0.1.0", "<0.2.0"]
-  - package: fivetran/twitter_organic
-    version: [">=0.1.0", "<0.2.0"]
-  - package: fivetran/linkedin_pages
-    version: [">=0.1.0", "<0.2.0"]
+- package: fivetran/facebook_pages
+  version: [">=0.1.0", "<0.2.0"]
+- package: fivetran/instagram_business
+  version: [">=0.1.0", "<0.2.0"]
+- package: fivetran/twitter_organic
+  version: [">=0.1.0", "<0.2.0"]
+- package: fivetran/linkedin_pages
+  version: [">=0.1.0", "<0.2.0"]
