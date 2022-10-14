@@ -10,7 +10,7 @@ with report as (
 
     select
         created_timestamp,
-        cast(post_id as {{ dbt_utils.type_string() }}) as post_id,
+        cast(post_id as {{ dbt.type_string() }}) as post_id,
         post_message,
         post_url,
         page_id,

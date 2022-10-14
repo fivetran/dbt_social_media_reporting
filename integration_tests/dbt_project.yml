@@ -24,7 +24,7 @@ vars:
 
 dispatch:
   - macro_namespace: dbt_utils
-    search_order: ['spark_utils', 'dbt_utils']
+    search_order: ['!!!!!!! REPLACE 'spark' WITH 'spark','databricks' OR EQUIV !!!!!!!_utils', 'dbt_utils']
     
 seeds:
   social_media_rollup_integration_tests:
@@ -55,12 +55,12 @@ seeds:
 
     facebook_pages_post_history_data:
       +column_types:
-        id: "{{ 'string' if target.type in ['bigquery','spark'] else 'varchar' }}"
-        promotable_id: "{{ 'string' if target.type in ['bigquery','spark'] else 'varchar' }}"
+        id: "{{ 'string' if target.type in ['bigquery','!!!!!!! REPLACE 'spark' WITH 'spark','databricks' OR EQUIV !!!!!!!'] else 'varchar' }}"
+        promotable_id: "{{ 'string' if target.type in ['bigquery','!!!!!!! REPLACE 'spark' WITH 'spark','databricks' OR EQUIV !!!!!!!'] else 'varchar' }}"
         page_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
     facebook_pages_lifetime_post_metrics_total_data:
       +column_types:
-        post_id: "{{ 'string' if target.type in ['bigquery','spark'] else 'varchar' }}"
+        post_id: "{{ 'string' if target.type in ['bigquery','!!!!!!! REPLACE 'spark' WITH 'spark','databricks' OR EQUIV !!!!!!!'] else 'varchar' }}"
     facebook_pages_page_data:
       +column_types:
         id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"

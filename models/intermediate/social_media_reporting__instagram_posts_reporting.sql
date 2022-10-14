@@ -12,7 +12,7 @@ with report as (
         user_id as page_id,
         post_caption as post_message,
         created_timestamp,
-        cast(post_id as {{ dbt_utils.type_string() }}) as post_id,
+        cast(post_id as {{ dbt.type_string() }}) as post_id,
         post_url,
         source_relation,
         'instagram' as platform,
