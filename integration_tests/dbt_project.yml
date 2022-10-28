@@ -29,6 +29,14 @@ dispatch:
 models: 
   social_media_reporting:
     +materialized: table
+  twitter_organic_source:
+    +materialized: table
+  facebook_pages_source:
+    +materialized: table
+  linkedin_pages_source:
+    +materialized: table
+  instagram_business_source:
+    +materialized: table
     
 seeds:
   social_media_rollup_integration_tests:
