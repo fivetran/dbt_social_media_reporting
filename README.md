@@ -168,13 +168,25 @@ packages:
     - package: fivetran/facebook_pages
       version: [">=0.2.0", "<0.3.0"]
 
+    - package: fivetran/facebook_pages_source
+      version: [">=0.2.0", "<0.3.0"]
+
     - package: fivetran/instagram_business
+      version: [">=0.2.0", "<0.3.0"]
+
+    - package: fivetran/instagram_business_source
       version: [">=0.2.0", "<0.3.0"]
 
     - package: fivetran/twitter_organic
       version: [">=0.2.0", "<0.3.0"]
 
+    - package: fivetran/twitter_organic_source
+      version: [">=0.2.0", "<0.3.0"]
+
     - package: fivetran/linkedin_pages
+      version: [">=0.2.0", "<0.3.0"]
+
+    - package: fivetran/linkedin_pages_source
       version: [">=0.2.0", "<0.3.0"]
 
     - package: fivetran/fivetran_utils
