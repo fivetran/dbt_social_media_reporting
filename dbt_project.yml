@@ -1,21 +1,17 @@
 name: 'social_media_reporting'
-version: '0.1.0'
+version: '0.2.0'
 config-version: 2
-require-dbt-version: [">=1.0.0", "<2.0.0"]
-
+require-dbt-version: [">=1.3.0", "<2.0.0"]
 vars:
   twitter_posts_report: "{{ ref('twitter_organic__tweets') }}"
   facebook_posts_report: "{{ ref('facebook_pages__posts_report') }}"
   linkedin_posts_report: "{{ ref('linkedin_pages__posts') }}"
   instagram_posts_report: "{{ ref('instagram_business__posts') }}"
-
   social_media_rollup__twitter_enabled: true
   social_media_rollup__facebook_enabled: true
   social_media_rollup__linkedin_enabled: true
   social_media_rollup__instagram_enabled: true
-
 models:
   social_media_reporting:
     +schema: social_media_reporting
     +materialized: table
-
