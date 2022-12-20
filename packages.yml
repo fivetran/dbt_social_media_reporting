@@ -1,26 +1,9 @@
 packages:
-# - package: fivetran/facebook_pages
-#   version: [">=0.2.0", "<0.3.0"]
-# - package: fivetran/instagram_business
-#   version: [">=0.2.0", "<0.3.0"]
-# - package: fivetran/twitter_organic
-#   version: [">=0.2.0", "<0.3.0"]
-# - package: fivetran/linkedin_pages
-#   version: [">=0.2.0", "<0.3.0"]
-
-# IMPORTANT: MAKE SURE TO REVERT BACK BEFORE MERGING
-- git: https://github.com/fivetran/dbt_facebook_pages.git
-  revision: MagicBot/dbt-utils-cross-db-migration
-  warn-unpinned: false
-
-- git: https://github.com/fivetran/dbt_instagram_business.git
-  revision: MagicBot/dbt-utils-cross-db-migration
-  warn-unpinned: false
-
-- git: https://github.com/fivetran/dbt_twitter_organic.git
-  revision: MagicBot/dbt-utils-cross-db-migration
-  warn-unpinned: false
-
-- git: https://github.com/fivetran/dbt_linkedin_pages.git
-  revision: MagicBot/dbt-utils-cross-db-migration
-  warn-unpinned: false
+- package: fivetran/facebook_pages
+  version: [">=0.2.0", "<0.3.0"]
+- package: fivetran/instagram_business
+  version: [">=0.2.0", "<0.3.0"]
+- package: fivetran/twitter_organic
+  version: [">=0.2.0", "<0.3.0"]
+- package: fivetran/linkedin_pages
+  version: [">=0.2.0", "<0.3.0"]
