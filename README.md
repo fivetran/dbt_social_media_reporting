@@ -37,8 +37,9 @@ Include in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/social_media_reporting
-    version: [">=0.2.0", "<0.3.0"]
+    version: [">=0.2.0", "<0.3.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
+Do NOT include the upstream social media packages in this file. The transformation package itself has a dependency on it and will install the upstream packages as well.
 
 ## Package Maintenance
 The Fivetran team maintaining this package **only** maintains the latest version. We highly recommend that you keep your `packages.yml` file updated with the [latest version in the dbt hub](https://hub.getdbt.com/fivetran/social_media_reporting/latest/). Read the [CHANGELOG](/CHANGELOG.md) and release notes for more information on changes across versions.
