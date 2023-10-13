@@ -93,7 +93,6 @@ vars:
 ```
 
 ## Step 4: Enabling/Disabling Models
-
 The package assumes that all connector models are enabled, so it will look to pull data from all of the connectors [listed above](https://github.com/fivetran/dbt_social_media_reporting#social-media-reporting). If you don't want to use certain connectors, disable those connectors' models in this package by setting the relevant variables to `false`:
 
 ```yml
@@ -134,6 +133,8 @@ models:
     facebook_pages_source:
         enabled: false
 ```
+
+## (Optional) Step 5: Additional configurations
 ### Unioning Multiple Social Media Connectors
 If you have multiple social media connectors in Fivetran, you can use this package on all of them simultaneously. The package will union all of the data together and then pass the unioned table(s) into the reporting model. You will be able to see which source the data came from in the `source_relation` column of each model. To use this functionality, you will need to set either the `union_schemas` or `union_databases` variables:
 

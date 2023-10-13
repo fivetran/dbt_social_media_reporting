@@ -15,7 +15,7 @@ with report as (
         post_url,
         source_relation,
         'linkedin' as platform,
-        coalesce(title_text, specific_content_share_commentary_text) as post_message,
+        specific_content_share_commentary_text as post_message,
         coalesce(sum(click_count),0) as clicks,
         coalesce(sum(comment_count),0) as comments,
         coalesce(sum(impression_count),0) as impressions,
