@@ -1,26 +1,50 @@
 name: 'social_media_rollup_integration_tests'
-version: '0.2.0'
+version: '0.3.0'
 profile: 'integration_tests'
 config-version: 2
 
 vars:
-  account_history: "{{ ref('twitter_organic_account_history_data') }}"
-  organic_tweet_report: "{{ ref('twitter_organic_organic_tweet_report_data') }}"
-  tweet: "{{ ref('twitter_organic_tweet_data') }}"
-  twitter_user_history: "{{ ref('twitter_organic_twitter_user_history_data') }}"
-  share_statistic: "{{ ref('linkedin_pages_share_statistic_data') }}"
-  ugc_post_share_statistic: "{{ ref('linkedin_pages_ugc_post_share_statistic_data') }}"
-  ugc_post_history: "{{ ref('linkedin_pages_ugc_post_history_data') }}"
-  ugc_post_share_content_media: "{{ ref('linkedin_pages_ugc_post_share_content_media_data') }}"
-  organization: "{{ ref('linkedin_pages_organization_data') }}"
-  organization_ugc_post: "{{ ref('linkedin_pages_organization_ugc_post_data') }}"
-  media_history: "{{ ref('instagram_business_media_history_data') }}"
-  media_insights: "{{ ref('instagram_business_media_insights_data') }}"
-  user_history: "{{ ref('instagram_business_user_history_data') }}"
-  post_history: "{{ ref('facebook_pages_post_history_data') }}"
-  page: "{{ ref('facebook_pages_page_data') }}"
-  lifetime_post_metrics_total: "{{ ref('facebook_pages_lifetime_post_metrics_total_data') }}"
-  daily_page_metrics_total: "{{ ref('facebook_pages_daily_page_metrics_total_data') }}"
+  twitter_organic_source:
+    twitter_organic_schema: social_media_rollup_integration_tests
+    twitter_organic_account_history_identifer: "twitter_organic_account_history_data"
+    twitter_organic_organic_tweet_report_identifer: "twitter_organic_organic_tweet_report_data"
+    twitter_organic_tweet_identifer: "twitter_organic_tweet_data"
+    twitter_organic_twitter_user_history_identifer: "twitter_organic_twitter_user_history_data"
+  linkedin_pages_source:
+    linkedin_pages_schema: social_media_rollup_integration_tests
+    linkedin_pages_organization_identifier: "linkedin_pages_organization_data"
+    linkedin_pages_organization_ugc_post_identifier: "linkedin_pages_organization_ugc_post_data"
+    linkedin_pages_share_statistic_identifier: "linkedin_pages_share_statistic_data"
+    linkedin_pages_ugc_post_history_identifier: "linkedin_pages_ugc_post_history_data"
+    linkedin_pages_ugc_post_share_statistic_identifier: "linkedin_pages_ugc_post_share_statistic_data"
+  instagram_business_source:
+    instagram_business_schema: social_media_rollup_integration_tests
+    instagram_business_media_history_identifier: "instagram_business_media_history_data"
+    instagram_business_media_insights_identifier: "instagram_business_media_insights_data"
+    instagram_business_user_history_identifier: "instagram_business_user_history_data"
+  facebook_pages_source:
+    facebook_pages_schema: social_media_rollup_integration_tests
+    facebook_pages_daily_page_metrics_total_identifier: "facebook_pages_daily_page_metrics_total_data"
+    facebook_pages_lifetime_post_metrics_total_identifier: "facebook_pages_lifetime_post_metrics_total_data"
+    facebook_pages_page_identifier: "facebook_pages_page_data"
+    facebook_pages_post_history_identifier: "facebook_pages_post_history_data"
+
+  # account_history: "{{ ref('twitter_organic_account_history_data') }}"
+  # organic_tweet_report: "{{ ref('twitter_organic_organic_tweet_report_data') }}"
+  # tweet: "{{ ref('twitter_organic_tweet_data') }}"
+  # twitter_user_history: "{{ ref('twitter_organic_twitter_user_history_data') }}"
+  # share_statistic: "{{ ref('linkedin_pages_share_statistic_data') }}"
+  # ugc_post_share_statistic: "{{ ref('linkedin_pages_ugc_post_share_statistic_data') }}"
+  # ugc_post_history: "{{ ref('linkedin_pages_ugc_post_history_data') }}"
+  # organization: "{{ ref('linkedin_pages_organization_data') }}"
+  # organization_ugc_post: "{{ ref('linkedin_pages_organization_ugc_post_data') }}"
+  # media_history: "{{ ref('instagram_business_media_history_data') }}"
+  # media_insights: "{{ ref('instagram_business_media_insights_data') }}"
+  # user_history: "{{ ref('instagram_business_user_history_data') }}"
+  # post_history: "{{ ref('facebook_pages_post_history_data') }}"
+  # page: "{{ ref('facebook_pages_page_data') }}"
+  # lifetime_post_metrics_total: "{{ ref('facebook_pages_lifetime_post_metrics_total_data') }}"
+  # daily_page_metrics_total: "{{ ref('facebook_pages_daily_page_metrics_total_data') }}"
 
 dispatch:
   - macro_namespace: dbt_utils

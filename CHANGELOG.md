@@ -1,3 +1,4 @@
+# dbt_social_media_reporting v0.3.0
 # dbt_social_media_reporting v0.2.0
 
 ## 🚨 Breaking Changes 🚨:
