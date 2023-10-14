@@ -1,4 +1,16 @@
 # dbt_social_media_reporting v0.3.0
+[PR #7](https://github.com/fivetran/dbt_social_media_reporting/pull/7) includes the following breaking changes:
+## 🚨 Breaking Changes 🚨:
+- In the Fivetran connector, the LinkedIn Company Pages source table `ugc_post_share_content_media` was deprecated. It has been removed from the LinkedIn Company Pages packages and use in this package.  
+
+## Features
+- Updated README!
+
+[PR #6](https://github.com/fivetran/dbt_social_media_reporting/pull/6) includes the following updates:
+## Under the Hood:
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
+- Updated the pull request [templates](/.github).
+
 # dbt_social_media_reporting v0.2.0
 
 ## 🚨 Breaking Changes 🚨:
