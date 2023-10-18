@@ -15,6 +15,7 @@ vars:
     linkedin_pages_organization_identifier: "linkedin_pages_organization_data"
     linkedin_pages_organization_ugc_post_identifier: "linkedin_pages_organization_ugc_post_data"
     linkedin_pages_share_statistic_identifier: "linkedin_pages_share_statistic_data"
+    linkedin_pages_post_content_identifier: "linkedin_pages_post_content_data"
     linkedin_pages_ugc_post_history_identifier: "linkedin_pages_ugc_post_history_data"
     linkedin_pages_ugc_post_share_statistic_identifier: "linkedin_pages_ugc_post_share_statistic_data"
   instagram_business_source:
