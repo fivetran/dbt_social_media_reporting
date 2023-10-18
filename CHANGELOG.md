@@ -15,7 +15,6 @@
 - Updated README documentation to most current format. 
 
 ## Under the Hood:
-
 - Updated seeds to reflect the above changes. 
 
 [PR #6](https://github.com/fivetran/dbt_social_media_reporting/pull/6) includes the following updates:
