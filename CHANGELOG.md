@@ -4,7 +4,7 @@
 - This update is made breaking due to the following changes in the [Linkedin Company Pages Fivetran Connector](https://fivetran.com/docs/applications/linkedin-company-pages), the [dbt_linkedin_pages_source](https://github.com/fivetran/dbt_linkedin_pages_source) package, and the [dbt_linkedin_pages](https://github.com/fivetran/dbt_linkedin_pages) package.
     - Deprecated source table `ugc_post_share_content_media`
     - Added source table `post_content` 
-    - See the [May 2023 release notes](https://fivetran.com/docs/applications/linkedin-company-pages/changelog#may2023), [dbt_linkedin_pages_source CHANGELOG](https://github.com/fivetran/dbt_linkedin_pages_source/blob/main/CHANGELOG.md), and the [dbt_linkedin_pages CHANGELOG](https://github.com/fivetran/dbt_linkedin_pages_source/blob/main/CHANGELOG.md) for full details. 
+    - See the [May 2023 release notes](https://fivetran.com/docs/applications/linkedin-company-pages/changelog#may2023), [dbt_linkedin_pages_source CHANGELOG](https://github.com/fivetran/dbt_linkedin_pages_source/blob/main/CHANGELOG.md), and the [dbt_linkedin_pages CHANGELOG](https://github.com/fivetran/dbt_linkedin_pages/blob/main/CHANGELOG.md) for full details. 
 
 ## Features
 - In `social_media_reporting__linkedin_posts_reporting`:
