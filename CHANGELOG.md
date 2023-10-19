@@ -1,3 +1,29 @@
+# dbt_social_media_reporting v0.3.0
+[PR #7](https://github.com/fivetran/dbt_social_media_reporting/pull/7) includes the following breaking changes:
+## 🚨 Breaking Changes 🚨:
+- This update is made breaking due to the following changes in the [Linkedin Company Pages Fivetran Connector](https://fivetran.com/docs/applications/linkedin-company-pages), the [dbt_linkedin_pages_source](https://github.com/fivetran/dbt_linkedin_pages_source) package, and the [dbt_linkedin_pages](https://github.com/fivetran/dbt_linkedin_pages) package.
+    - Deprecated source table `ugc_post_share_content_media`
+    - Added source table `post_content` 
+    - See the [May 2023 release notes](https://fivetran.com/docs/applications/linkedin-company-pages/changelog#may2023), [dbt_linkedin_pages_source CHANGELOG](https://github.com/fivetran/dbt_linkedin_pages_source/blob/main/CHANGELOG.md), and the [dbt_linkedin_pages CHANGELOG](https://github.com/fivetran/dbt_linkedin_pages/blob/main/CHANGELOG.md) for full details. 
+
+## Features
+- In `social_media_reporting__linkedin_posts_reporting`:
+    - removed deprecated columns:
+        - `title_text`
+        - `specific_content_share_commentary_text`
+    - replaced with new columns:
+        - `post_title` 
+        - `commentary` 
+- Added source identifiers to give users more dynamic flexibility. Please see [this section](https://github.com/fivetran/dbt_social_media_reporting#change-the-source-table-references) of the README for more details. 
+- Updated README documentation to most current format. 
+
+## Under the Hood:
+- Updated seeds to reflect the above changes. 
+
+[PR #6](https://github.com/fivetran/dbt_social_media_reporting/pull/6) includes the following updates:
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
+- Updated the pull request [templates](/.github).
+
 # dbt_social_media_reporting v0.2.0
 
 ## 🚨 Breaking Changes 🚨:
