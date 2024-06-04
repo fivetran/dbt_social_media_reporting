@@ -1,3 +1,27 @@
+# dbt_social_media_reporting v0.4.0
+[PR #8](https://github.com/fivetran/dbt_social_media_reporting/pull/8) includes the following breaking changes:
+
+## 🚨 Breaking Changes 🚨:
+- This change is made breaking due to changes made in the [dbt_facebook_pages_source](https://github.com/fivetran/dbt_facebook_pages_source) and [dbt_facebook_pages](https://github.com/fivetran/dbt_facebook_pages) packages. Columns have been removed in the source package (see the [dbt_facebook_pages_source v0.3.0 CHANGELOG](https://github.com/fivetran/dbt_facebook_pages_source/blob/main/CHANGELOG.md#dbt_facebook_pages_source-v030) for more details). 
+    - No columns were changed in the end models in this package, however if you use the Facebook Pages staging models independently, you will need to update your downstream use cases accordingly.
+    - Columns removed from staging model `stg_facebook_pages__daily_page_metrics_total`:
+        - `consumptions`
+        - `content_activity`
+        - `engaged_users`
+        - `places_checkin_mobile`
+        - `views_external_referrals`
+        - `views_logged_in_total`
+        - `views_logout`
+    - Columns removed from staging model `stg_facebook_pages__lifetime_post_metrics_total`:
+        - `impressions_fan_paid`
+
+## Features
+- Updated documentation to reflect the current schema. 
+
+## Under the Hood:
+- Updated the pull request templates.
+- Included auto-releaser GitHub Actions workflow to automate future releases.
+
 # dbt_social_media_reporting v0.3.0
 [PR #7](https://github.com/fivetran/dbt_social_media_reporting/pull/7) includes the following breaking changes:
 ## 🚨 Breaking Changes 🚨:
