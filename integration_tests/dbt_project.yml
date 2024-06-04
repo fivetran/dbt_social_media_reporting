@@ -5,7 +5,7 @@ config-version: 2
 
 vars:
   twitter_organic_source:
-    twitter_organic_schema: zz_dbt_catherine_fb_pages # social_media_rollup_integration_tests
+    twitter_organic_schema: social_media_rollup_integration_tests
     twitter_organic_account_history_identifer: "twitter_organic_account_history_data"
     twitter_organic_organic_tweet_report_identifer: "twitter_organic_organic_tweet_report_data"
     twitter_organic_tweet_identifer: "twitter_organic_tweet_data"
