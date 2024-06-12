@@ -163,10 +163,10 @@ This dbt package is dependent on the following dbt packages. Please be aware tha
 ```yml
 packages:
     - package: fivetran/facebook_pages
-      version: [">=0.2.0", "<0.3.0"]
+      version: [">=0.3.0", "<0.4.0"]
 
     - package: fivetran/facebook_pages_source
-      version: [">=0.2.0", "<0.3.0"]
+      version: [">=0.3.0", "<0.4.0"]
 
     - package: fivetran/instagram_business
       version: [">=0.2.0", "<0.3.0"]
