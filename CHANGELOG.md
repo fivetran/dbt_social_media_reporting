@@ -15,7 +15,7 @@
     - Columns removed from staging model `stg_facebook_pages__lifetime_post_metrics_total`:
         - `impressions_fan_paid`
 
-## Features
+## Documentation Update
 - Updated documentation to reflect the current schema. 
 
 ## Under the Hood:
