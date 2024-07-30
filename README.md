@@ -24,11 +24,14 @@ Currently, this package supports the following social media connector types:
 > NOTE: You do _not_ need to have all of these connector types to use this package, though you should have at least two.
 - Generates a comprehensive data dictionary of your source and modeled Social Media Reporting data via the [dbt docs site](https://fivetran.github.io/dbt_social_media_reporting/)
 
+<!--section="social_media_reporting_transformation_model-->
 This package contains a number of models, which all build up to the final `social_media_reporting` model. The `social_media_reporting` model combines the data from all of the connectors. A dependency on all the required dbt packages is declared in this package's `packages.yml` file, so it will automatically download them when you run `dbt deps`. The primary outputs of this package are described below.
 
 | **model**    | **description**                                                                                                        |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------- |
 | [social_media_reporting__rollup_report](https://github.com/fivetran/dbt_social_media_reporting/blob/main/models/social_media_reporting__rollup_report.sql) | Each record represents a post from a social media account across selected connectors, including post metadata and metrics. |
+
+<!--section-end-->
 
 # 🎯 How do I use the dbt package?
 ## Step 1: Pre-Requisites
