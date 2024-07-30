@@ -1,0 +1,31 @@
+dbt_versions: '>=1.3.0 <2.0.0'
+
+multi_connector_config:
+  facebook_pages:
+    database_key: facebook_pages_database
+    union_schema_key: facebook_pages_union_schemas
+    model_variable: social_media_rollup__facebook_enabled
+  instagram_business:
+    database_key: instagram_business_database
+    union_schema_key: instagram_business_union_schemas
+    model_variable: social_media_rollup__instagram_enabled
+  linkedin_company_pages:
+    database_key: linkedin_pages_database
+    union_schema_key: linkedin_pages_union_schemas
+    model_variable: social_media_rollup__linkedin_enabled
+  twitter:
+    database_key: twitter_organic_database
+    union_schema_key: twitter_organic_union_schemas
+    model_variable: social_media_rollup__twitter_enabled
+
+table_variables: {}
+
+destination_configurations:
+  databricks:
+    dispatch:
+      - macro_namespace: dbt_utils
+        search_order:
+          - spark_utils
+          - dbt_utils
+
+public_models: ["social_media_reporting__rollup_report"]
