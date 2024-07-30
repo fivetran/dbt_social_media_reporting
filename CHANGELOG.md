@@ -1,3 +1,8 @@
+# dbt_social_media_reporting vNEXTRELEASE
+
+## Under the Hood
+- Addition of a section tag within the README so the model descriptions may be accessible within the Fivetran UI for Quickstart.
+
 # dbt_social_media_reporting v0.4.0
 [PR #8](https://github.com/fivetran/dbt_social_media_reporting/pull/8) includes the following breaking changes:
 
