@@ -1,17 +1,17 @@
 name: 'social_media_rollup_integration_tests'
-version: '0.3.0'
+version: '0.4.0'
 profile: 'integration_tests'
 config-version: 2
 
 vars:
   twitter_organic_source:
-    twitter_organic_schema: social_media_rollup_integration_tests
-    twitter_organic_account_history_identifer: "twitter_organic_account_history_data"
-    twitter_organic_organic_tweet_report_identifer: "twitter_organic_organic_tweet_report_data"
-    twitter_organic_tweet_identifer: "twitter_organic_tweet_data"
-    twitter_organic_twitter_user_history_identifer: "twitter_organic_twitter_user_history_data"
+    twitter_organic_schema: social_media_rollup_integration_tests_1
+    twitter_account_history_identifier: "account_history"
+    twitter_organic_tweet_report_identifier: "organic_tweet_report"
+    twitter_tweet_identifier: "tweet"
+    twitter_twitter_user_history_identifier: "twitter_user_history"
   linkedin_pages_source:
-    linkedin_pages_schema: social_media_rollup_integration_tests
+    linkedin_pages_schema: social_media_rollup_integration_tests_1
     linkedin_pages_organization_identifier: "linkedin_pages_organization_data"
     linkedin_pages_organization_ugc_post_identifier: "linkedin_pages_organization_ugc_post_data"
     linkedin_pages_share_statistic_identifier: "linkedin_pages_share_statistic_data"
@@ -19,12 +19,12 @@ vars:
     linkedin_pages_ugc_post_history_identifier: "linkedin_pages_ugc_post_history_data"
     linkedin_pages_ugc_post_share_statistic_identifier: "linkedin_pages_ugc_post_share_statistic_data"
   instagram_business_source:
-    instagram_business_schema: social_media_rollup_integration_tests
+    instagram_business_schema: social_media_rollup_integration_tests_1
     instagram_business_media_history_identifier: "instagram_business_media_history_data"
     instagram_business_media_insights_identifier: "instagram_business_media_insights_data"
     instagram_business_user_history_identifier: "instagram_business_user_history_data"
   facebook_pages_source:
-    facebook_pages_schema: social_media_rollup_integration_tests
+    facebook_pages_schema: social_media_rollup_integration_tests_1
     facebook_pages_daily_page_metrics_total_identifier: "facebook_pages_daily_page_metrics_total_data"
     facebook_pages_lifetime_post_metrics_total_identifier: "facebook_pages_lifetime_post_metrics_total_data"
     facebook_pages_page_identifier: "facebook_pages_page_data"
@@ -35,9 +35,8 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 
 models: 
+  +schema: "social_media_{{ var('directed_schema','dev') }}"
   social_media_reporting:
-    +materialized: table
-  twitter_organic_source:
     +materialized: table
   facebook_pages_source:
     +materialized: table
@@ -48,10 +47,10 @@ models:
     
 seeds:
   social_media_rollup_integration_tests:
-    twitter_organic_tweet_data:
+    tweet:
       +column_types: 
         id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
-    twitter_organic_organic_tweet_report_data:
+    organic_tweet_report:
       +column_types:
         organic_tweet_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
 
