@@ -26,6 +26,8 @@
 | `twitter_twitter_user_history_identifier` | `twitter_organic_twitter_user_history_identifer` |
 
 ## Under the Hood
+[PR #11](https://github.com/fivetran/dbt_social_media_reporting/pull/11) includes the following under the hood updates:
+
 - Consistency validation for integration tests has been added for the `social_media_reporting__rollup_report` model. 
 - Updated the maintainer PR, Issue, Feature Request, and Config templates to resemble the most up to date format. 
 - Renamed the Twitter Organic seed files to allow for more testing functionality.

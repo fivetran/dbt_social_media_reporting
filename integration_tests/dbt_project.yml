@@ -30,6 +30,12 @@ vars:
     facebook_pages_page_identifier: "facebook_pages_page_data"
     facebook_pages_post_history_identifier: "facebook_pages_post_history_data"
 
+  ## Used for local validation testing
+  # twitter_organic_schema: <local_schema_name>
+  # linkedin_pages_schema: <local_schema_name>
+  # instagram_business_schema: <local_schema_name>
+  # facebook_pages_schema: <local_schema_name>
+
 dispatch:
   - macro_namespace: dbt_utils
     search_order: ['spark_utils', 'dbt_utils']
