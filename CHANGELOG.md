@@ -26,12 +26,10 @@
 | `twitter_twitter_user_history_identifier` | `twitter_organic_twitter_user_history_identifer` |
 
 ## Under the Hood
-[PR #11](https://github.com/fivetran/dbt_social_media_reporting/pull/11) includes the following under the hood updates:
-
-- Consistency validation for integration tests has been added for the `social_media_reporting__rollup_report` model. 
-- Updated the maintainer PR, Issue, Feature Request, and Config templates to resemble the most up to date format. 
-- Renamed the Twitter Organic seed files to allow for more testing functionality.
-- Addition of a section tag within the README so the model descriptions may be accessible within the Fivetran UI for Quickstart.
+- Consistency validation for integration tests has been added for the `social_media_reporting__rollup_report` model. ([PR #11](https://github.com/fivetran/dbt_social_media_reporting/pull/11))
+- Updated the maintainer PR, Issue, Feature Request, and Config templates to resemble the most up to date format. ([PR #11](https://github.com/fivetran/dbt_social_media_reporting/pull/11))
+- Renamed the Twitter Organic seed files to allow for more testing functionality. ([PR #11](https://github.com/fivetran/dbt_social_media_reporting/pull/11))
+- Addition of a section tag within the README so the model descriptions may be accessible within the Fivetran UI for Quickstart. ([PR #10](https://github.com/fivetran/dbt_social_media_reporting/pull/10))
 
 # dbt_social_media_reporting v0.4.0
 [PR #8](https://github.com/fivetran/dbt_social_media_reporting/pull/8) includes the following breaking changes:
