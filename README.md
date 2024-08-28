@@ -12,15 +12,15 @@
 
 # Social Media Reporting dbt Package ([Docs](https://fivetran.github.io/dbt_social_media_reporting/))
 
-# 📣 What does this dbt package do?
+## What does this dbt package do?
 
 This dbt package aggregates and models data from multiple Fivetran social media connectors. The package standardizes the schemas from the various social media connectors and creates a single reporting model for all activity. It enables you to analyze your post performance by clicks, impressions, shares, likes, and comments.
 
 Currently, this package supports the following social media connector types:
-  - [Facebook Pages](https://github.com/fivetran/dbt_facebook_pages)
-  - [Instagram Business](https://github.com/fivetran/dbt_instagram_business)
-  - [LinkedIn Company Pages](https://github.com/fivetran/dbt_linkedin_pages)
-  - [Twitter Organic](https://github.com/fivetran/dbt_twitter_organic)
+- [Facebook Pages](https://github.com/fivetran/dbt_facebook_pages)
+- [Instagram Business](https://github.com/fivetran/dbt_instagram_business)
+- [LinkedIn Company Pages](https://github.com/fivetran/dbt_linkedin_pages)
+- [Twitter Organic](https://github.com/fivetran/dbt_twitter_organic)
 > NOTE: You do _not_ need to have all of these connector types to use this package, though you should have at least two.
 - Generates a comprehensive data dictionary of your source and modeled Social Media Reporting data via the [dbt docs site](https://fivetran.github.io/dbt_social_media_reporting/)
 
@@ -33,19 +33,19 @@ This package contains a number of models, which all build up to the final `socia
 
 <!--section-end-->
 
-# 🎯 How do I use the dbt package?
-## Step 1: Pre-Requisites
+## How do I use the dbt package?
+### Step 1: Pre-Requisites
 **Connector**: Have at least one of the below supported Fivetran ad platform connectors syncing data into your warehouse. This package currently supports:
-  - [Facebook Pages](https://fivetran.com/docs/applications/facebook-pages)
-  - [Instagram Business](https://fivetran.com/docs/applications/instagram-business)
-  - [LinkedIn Company Pages](https://fivetran.com/docs/applications/linkedin-company-pages)
-  - [Twitter Organic](https://fivetran.com/docs/applications/twitter)
+- [Facebook Pages](https://fivetran.com/docs/applications/facebook-pages)
+- [Instagram Business](https://fivetran.com/docs/applications/instagram-business)
+- [LinkedIn Company Pages](https://fivetran.com/docs/applications/linkedin-company-pages)
+- [Twitter Organic](https://fivetran.com/docs/applications/twitter)
 
 > While you need only one of the above connectors to utilize this package, we recommend having at least two to gain the rollup benefit of this package.
 
 - **Database support**: This package has been tested on **BigQuery**, **Snowflake**, **Redshift**, **Postgres** and **Databricks**. Ensure you are using one of these supported databases.
 
-### Databricks Dispatch Configuration
+#### Databricks Dispatch Configuration
 If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
 ```yml
 dispatch:
@@ -53,7 +53,7 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 ```
 
-## Step 2: Installing the Package
+### Step 2: Installing the Package
 Include the following github package version in your `packages.yml`
 > Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 ```yaml
@@ -65,7 +65,7 @@ Do NOT include the upstream social media packages in this file. The transformati
 
 Do NOT include the individual social media packages in this file. This package has dependencies on the packages and will install them as well.
 
-## Step 3: Configure Database and Schema Variables
+### Step 3: Configure Database and Schema Variables
 By default, this package looks for your social media reporting data in your target database. If this is not where your app platform data is stored, add the relevant `<connector>_database` variables to your `dbt_project.yml` file (see below).
 
 ```yml
@@ -87,7 +87,7 @@ vars:
     twitter_organic_database: twitter_organic_database
 ```
 
-### Change the source table references
+#### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
 > IMPORTANT: See the Facebook Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_facebook_pages_source/blob/main/dbt_project.yml), Instagram Business [`dbt_project.yml`](https://github.com/fivetran/dbt_instagram_business_source/blob/main/dbt_project.yml), LinkedIn Company Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_linkedin_pages_source/blob/main/dbt_project.yml), and Twitter Organic [`dbt_project.yml`](https://github.com/fivetran/dbt_twitter_organicy_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
     
@@ -96,7 +96,7 @@ vars:
     <default_source_table_name>_identifier: your_table_name 
 ```
 
-## Step 4: Enabling/Disabling Models
+### Step 4: Enabling/Disabling Models
 The package assumes that all connector models are enabled, so it will look to pull data from all of the connectors [listed above](https://github.com/fivetran/dbt_social_media_reporting#social-media-reporting). If you don't want to use certain connectors, disable those connectors' models in this package by setting the relevant variables to `false`:
 
 ```yml
@@ -107,7 +107,7 @@ vars:
     social_media_rollup__instagram_enabled: False
 ```
 
-Next, you must disable the models in the unwanted connector's related package, which has its own configuration. Disable the relevant models under the models section of your `dbt_project.yml` file by setting the `enabled` value to `false`. 
+Next, you must disable the models in the unwanted connector's related package, which has its own configuration. Disable the relevant models under the models section of your `dbt_project.yml` file by setting the `enabled` value to `false`.
 
 _Only include the models you want to disable.  Default values are generally `true` but that is not always the case._
 
@@ -138,8 +138,8 @@ models:
         enabled: false
 ```
 
-## (Optional) Step 5: Additional configurations
-### Unioning Multiple Social Media Connectors
+### (Optional) Step 5: Additional configurations
+#### Unioning Multiple Social Media Connectors
 If you have multiple social media connectors in Fivetran, you can use this package on all of them simultaneously. The package will union all of the data together and then pass the unioned table(s) into the reporting model. You will be able to see which source the data came from in the `source_relation` column of each model. To use this functionality, you will need to set either the `union_schemas` or `union_databases` variables:
 
 > IMPORTANT: You _cannot_ use both the `union_schemas` and `union_databases` variables.
@@ -160,8 +160,8 @@ vars:
 ```
 For more configuration information, see the individual connector dbt packages ([listed above](https://github.com/fivetran/dbt_social_media_reporting#social-media-reporting)).
 
-# 🔍 Does this package have dependencies?
-This dbt package is dependent on the following dbt packages. Please be aware that these dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
+## Does this package have dependencies?
+This dbt package is dependent on the following dbt packages. These dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
 > IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
 ```yml
 packages:
@@ -199,15 +199,15 @@ packages:
       version: [">=0.3.0", "<0.4.0"]
 ```
 
-# 🙌 How is this package maintained and can I contribute?
-## Package Maintenance
+## How is this package maintained and can I contribute?
+### Package Maintenance
 The Fivetran team maintaining this package **only** maintains the latest version of the package. We highly recommend you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/github/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_social_media_reporting/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
 
-## Contributions
-These dbt packages are developed by a small team of analytics engineers at Fivetran. However, the packages are made better by community contributions! 
+### Contributions
+These dbt packages are developed by a small team of analytics engineers at Fivetran. However, the packages are made better by community contributions.
 
-We highly encourage and welcome contributions to this package. Check out [this post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) on the best workflow for contributing to a package!
+We highly encourage and welcome contributions to this package. Check out [this post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) on the best workflow for contributing to a package.
 
-# 🏪 Are there any resources available?
-- If you encounter any questions or want to reach out for help, please refer to the [GitHub Issue](https://github.com/fivetran/dbt_social_media_reporting/issues/new/choose) section to find the right avenue of support for you.
+## Are there any resources available?
+- If you encounter any questions or want to reach out for help, see the [GitHub Issue](https://github.com/fivetran/dbt_social_media_reporting/issues/new/choose) section to find the right avenue of support for you.
 - If you would like to provide feedback to the dbt package team at Fivetran, or would like to request a future dbt package to be developed, then feel free to fill out our [Feedback Form](https://www.surveymonkey.com/r/DQ7K7WW).

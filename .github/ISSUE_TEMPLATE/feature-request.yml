@@ -1,7 +1,7 @@
 name: 🎉 Feature
 description: Suggest a new feature for the Fivetran dbt package
 title: "[Feature] <title>"
-labels: ["enhancement"]
+labels: ["type:enhancement"]
 body:
   - type: markdown
     attributes:
@@ -18,6 +18,13 @@ body:
     attributes:
       label: Describe the Feature
       description: A clear and concise description of what you want to happen and why you want the new feature.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: How would you implement this feature?
+      description: |
+        How would you build out this feature with your existing data? Any code examples you can provide to help accelerate development on this issue?
     validations:
       required: true
   - type: textarea
