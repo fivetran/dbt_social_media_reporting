@@ -1,3 +1,9 @@
+# dbt_social_media_reporting version.version
+
+## Documentation
+- Added Quickstart model counts to README. ([#15](https://github.com/fivetran/dbt_social_media_reporting/pull/15))
+- Corrected references to connectors and connections in the README. ([#15](https://github.com/fivetran/dbt_social_media_reporting/pull/15))
+
 # dbt_social_media_reporting v0.5.0
 
 ## Upstream Breaking Changes (Twitter Organic)
