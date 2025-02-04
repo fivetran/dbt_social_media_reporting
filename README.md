@@ -14,7 +14,7 @@
 
 ## What does this dbt package do?
 
-This dbt package aggregates and models data from multiple Fivetran social media connectors. The package standardizes the schemas from the various social media connectors and creates a single reporting model for all activity. It enables you to analyze your post performance by clicks, impressions, shares, likes, and comments.
+This dbt package aggregates and models data from multiple Fivetran social media connections. The package standardizes the schemas from the various social media connections and creates a single reporting model for all activity. It enables you to analyze your post performance by clicks, impressions, shares, likes, and comments.
 
 Currently, this package supports the following social media connector types:
   - [Facebook Pages](https://github.com/fivetran/dbt_facebook_pages)
@@ -25,23 +25,34 @@ Currently, this package supports the following social media connector types:
 - Generates a comprehensive data dictionary of your source and modeled Social Media Reporting data via the [dbt docs site](https://fivetran.github.io/dbt_social_media_reporting/)
 
 <!--section="social_media_reporting_transformation_model-->
-This package contains a number of tables, which all build up to the final `social_media_reporting` table. The `social_media_reporting` table combines the data from all of the connectors.
+This package contains a number of tables, which all build up to the final `social_media_reporting` table. The `social_media_reporting` table combines the data from all of the connections.
 
 | **Table**    | **Description**                                                                                                        |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| [social_media_reporting__rollup_report](https://github.com/fivetran/dbt_social_media_reporting/blob/main/models/social_media_reporting__rollup_report.sql) | Each record represents a post from a social media account across selected connectors, including post metadata and metrics. |
+| [social_media_reporting__rollup_report](https://github.com/fivetran/dbt_social_media_reporting/blob/main/models/social_media_reporting__rollup_report.sql) | Each record represents a post from a social media account across selected connections, including post metadata and metrics. |
 
+### Materialized Models
+Each Quickstart transformation job run materializes the following model counts for each selected connector. The total model count represents all staging, intermediate, and final models, materialized as `view`, `table`, or `incremental`:
+
+| **Connector** | **Model Count** |
+| ------------- | --------------- |
+| Social Media Reporting | 5 |
+| [Facebook Pages](https://github.com/fivetran/dbt_facebook_pages) | 11 |
+| [Instagram Business](https://github.com/fivetran/dbt_instagram_business) | 7 |
+| [LinkedIn Company Pages](https://github.com/fivetran/dbt_linkedin_pages) | 15 |
+| [Twitter Organic](https://github.com/fivetran/dbt_twitter_organic) | 11 |
+| [Twitter Organic](https://github.com/fivetran/dbt_twitter_organic) | 11 |
 <!--section-end-->
 
 ## How do I use the dbt package?
 ### Step 1: Pre-Requisites
-**Connector**: Have at least one of the below supported Fivetran ad platform connectors syncing data into your warehouse. This package currently supports:
+**Connector**: Have at least one of the below supported Fivetran ad platform connections syncing data into your destination. This package currently supports:
 - [Facebook Pages](https://fivetran.com/docs/applications/facebook-pages)
 - [Instagram Business](https://fivetran.com/docs/applications/instagram-business)
 - [LinkedIn Company Pages](https://fivetran.com/docs/applications/linkedin-company-pages)
 - [Twitter Organic](https://fivetran.com/docs/applications/twitter)
 
-> While you need only one of the above connectors to utilize this package, we recommend having at least two to gain the rollup benefit of this package.
+> While you need only one of the above connections to utilize this package, we recommend having at least two to gain the rollup benefit of this package.
 
 - **Database support**: This package has been tested on **BigQuery**, **Snowflake**, **Redshift**, **Postgres** and **Databricks**. Ensure you are using one of these supported databases.
 
@@ -66,7 +77,7 @@ Do NOT include the upstream social media packages in this file. The transformati
 Do NOT include the individual social media packages in this file. This package has dependencies on the packages and will install them as well.
 
 ### Step 3: Configure Database and Schema Variables
-By default, this package looks for your social media reporting data in your target database. If this is not where your app platform data is stored, add the relevant `<connector>_database` variables to your `dbt_project.yml` file (see below).
+By default, this package looks for your social media reporting data in your target database. If this is not where your app platform data is stored, add the relevant `<connection>_database` variables to your `dbt_project.yml` file (see below).
 
 ```yml
 vars:
@@ -97,7 +108,7 @@ vars:
 ```
 
 ### Step 4: Enabling/Disabling Models
-The package assumes that all connector models are enabled, so it will look to pull data from all of the connectors [listed above](https://github.com/fivetran/dbt_social_media_reporting#social-media-reporting). If you don't want to use certain connectors, disable those connectors' models in this package by setting the relevant variables to `false`:
+The package assumes that all connector models are enabled, so it will look to pull data from all of the connections [listed above](https://github.com/fivetran/dbt_social_media_reporting#social-media-reporting). If you don't want to use certain connections, disable those connections' models in this package by setting the relevant variables to `false`:
 
 ```yml
 vars:
@@ -107,7 +118,7 @@ vars:
     social_media_rollup__instagram_enabled: False
 ```
 
-Next, you must disable the models in the unwanted connector's related package, which has its own configuration. Disable the relevant models under the models section of your `dbt_project.yml` file by setting the `enabled` value to `false`.
+Next, you must disable the models in the unwanted connection's related package, which has its own configuration. Disable the relevant models under the models section of your `dbt_project.yml` file by setting the `enabled` value to `false`.
 
 _Only include the models you want to disable.  Default values are generally `true` but that is not always the case._
 
@@ -139,8 +150,8 @@ models:
 ```
 
 ### (Optional) Step 5: Additional configurations
-#### Unioning Multiple Social Media Connectors
-If you have multiple social media connectors in Fivetran, you can use this package on all of them simultaneously. The package will union all of the data together and then pass the unioned table(s) into the reporting model. You will be able to see which source the data came from in the `source_relation` column of each model. To use this functionality, you will need to set either the `union_schemas` or `union_databases` variables:
+#### Unioning Multiple Social Media Connections
+If you have multiple social media connections in Fivetran, you can use this package on all of them simultaneously. The package will union all of the data together and then pass the unioned table(s) into the reporting model. You will be able to see which source the data came from in the `source_relation` column of each model. To use this functionality, you will need to set either the `union_schemas` or `union_databases` variables:
 
 > IMPORTANT: You _cannot_ use both the `union_schemas` and `union_databases` variables.
 
