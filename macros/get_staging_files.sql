@@ -18,6 +18,9 @@
     {% set _ = staging_file.append(ref('social_media_reporting__instagram_posts_reporting')) %}
     {% endif %}
 
+    {% if var('social_media_rollup__youtube_enabled') %} 
+    {% set _ = staging_file.append(ref('social_media_reporting__youtube_videos_reporting')) %}
+    {% endif %}
 
     {{ return(staging_file) }}
 
