@@ -1,5 +1,5 @@
 name: 'social_media_reporting'
-version: '0.5.0'
+version: '0.6.0'
 config-version: 2
 require-dbt-version: [">=1.3.0", "<2.0.0"]
 vars:
@@ -7,10 +7,12 @@ vars:
   facebook_posts_report: "{{ ref('facebook_pages__posts_report') }}"
   linkedin_posts_report: "{{ ref('linkedin_pages__posts') }}"
   instagram_posts_report: "{{ ref('instagram_business__posts') }}"
+  youtube_videos_report: "{{ ref('youtube__video_report') }}"
   social_media_rollup__twitter_enabled: true
   social_media_rollup__facebook_enabled: true
   social_media_rollup__linkedin_enabled: true
   social_media_rollup__instagram_enabled: true
+  social_media_rollup__youtube_enabled: true
 models:
   social_media_reporting:
     +schema: social_media_reporting

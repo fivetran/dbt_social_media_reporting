@@ -1,5 +1,5 @@
 name: 'social_media_rollup_integration_tests'
-version: '0.5.0'
+version: '0.6.0'
 profile: 'integration_tests'
 config-version: 2
 
@@ -29,12 +29,18 @@ vars:
     facebook_pages_lifetime_post_metrics_total_identifier: "facebook_pages_lifetime_post_metrics_total_data"
     facebook_pages_page_identifier: "facebook_pages_page_data"
     facebook_pages_post_history_identifier: "facebook_pages_post_history_data"
+  youtube_analytics_source:
+    youtube_analytics_schema: social_media_rollup_integration_tests_1
+    youtube_analytics_channel_basic_a_2_identifier: "youtube_channel_basic_data"
+    youtube_analytics_channel_demographics_a_1_identifier: "youtube_channel_demographics_data"
+    youtube_analytics_video_identifier: "youtube_video_data"
 
   ## Used for local validation testing
   # twitter_organic_schema: <local_schema_name>
   # linkedin_pages_schema: <local_schema_name>
   # instagram_business_schema: <local_schema_name>
   # facebook_pages_schema: <local_schema_name>
+  # youtube_analytics_schema: <local_schema_name>
 
 dispatch:
   - macro_namespace: dbt_utils
@@ -50,7 +56,9 @@ models:
     +materialized: table
   instagram_business_source:
     +materialized: table
-    
+  youtube_analytics_source:
+    +materialized: table
+
 seeds:
   social_media_rollup_integration_tests:
     tweet:
@@ -92,3 +100,17 @@ seeds:
     facebook_pages_daily_page_metrics_total_data:
       +column_types:
         page_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+
+    youtube_channel_basic_data:
+      +column_types:
+        annotation_click_through_rate: "{{ 'float64' if target.name == 'bigquery' else 'float' }}"
+        annotation_close_rate: "{{ 'float64' if target.name == 'bigquery' else 'float' }}"
+        average_view_duration_percentage: "{{ 'float64' if target.name == 'bigquery' else 'float' }}"
+        average_view_duration_seconds: "{{ 'float64' if target.name == 'bigquery' else 'float' }}"
+        card_click_rate: "{{ 'float64' if target.name == 'bigquery' else 'float' }}"
+        card_teaser_click_rate: "{{ 'float64' if target.name == 'bigquery' else 'float' }}"
+        red_watch_time_minutes: "{{ 'float64' if target.name == 'bigquery' else 'float' }}"
+        watch_time_minutes: "{{ 'float64' if target.name == 'bigquery' else 'float' }}"
+    youtube_video_data:
+      +column_types:
+        snippet_thumbnails: "{{ 'string' if target.type in ('bigquery','spark','databricks') else 'varchar' }}"
