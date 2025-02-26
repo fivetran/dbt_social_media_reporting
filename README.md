@@ -21,6 +21,7 @@ Currently, this package supports the following social media connector types:
   - [Instagram Business](https://github.com/fivetran/dbt_instagram_business)
   - [LinkedIn Company Pages](https://github.com/fivetran/dbt_linkedin_pages)
   - [Twitter Organic](https://github.com/fivetran/dbt_twitter_organic)
+  - [Youtube Analytics](https://github.com/fivetran/dbt_youtube_analytics)
 > NOTE: You do _not_ need to have all of these connector types to use this package, though you should have at least two.
 - Generates a comprehensive data dictionary of your source and modeled Social Media Reporting data via the [dbt docs site](https://fivetran.github.io/dbt_social_media_reporting/)
 
@@ -41,16 +42,17 @@ Each Quickstart transformation job run materializes the following model counts f
 | [Instagram Business](https://github.com/fivetran/dbt_instagram_business) | 7 |
 | [LinkedIn Company Pages](https://github.com/fivetran/dbt_linkedin_pages) | 15 |
 | [Twitter Organic](https://github.com/fivetran/dbt_twitter_organic) | 11 |
-| [Twitter Organic](https://github.com/fivetran/dbt_twitter_organic) | 11 |
+| [Youtube Analytics](https://github.com/fivetran/dbt_youtube_analytics) | 11 |
 <!--section-end-->
 
 ## How do I use the dbt package?
 ### Step 1: Pre-Requisites
 **Connector**: Have at least one of the below supported Fivetran ad platform connections syncing data into your destination. This package currently supports:
-- [Facebook Pages](https://fivetran.com/docs/applications/facebook-pages)
-- [Instagram Business](https://fivetran.com/docs/applications/instagram-business)
-- [LinkedIn Company Pages](https://fivetran.com/docs/applications/linkedin-company-pages)
-- [Twitter Organic](https://fivetran.com/docs/applications/twitter)
+- [Facebook Pages](https://fivetran.com/docs/connectors/applications/facebook-pages)
+- [Instagram Business](https://fivetran.com/docs/connectors/applications/instagram-business)
+- [LinkedIn Company Pages](https://fivetran.com/docs/connectors/applications/linkedin-company-pages)
+- [Twitter Organic](https://fivetran.com/docs/connectors/applications/twitter)
+- [Youtube Analytics](https://fivetran.com/docs/connectors/applications/youtube-analytics)
 
 > While you need only one of the above connections to utilize this package, we recommend having at least two to gain the rollup benefit of this package.
 
@@ -70,7 +72,7 @@ Include the following github package version in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/social_media_reporting
-    version: [">=0.5.0", "<0.6.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.6.0", "<0.7.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 Do NOT include the upstream social media packages in this file. The transformation package itself has a dependency on it and will install the upstream packages as well.
 
@@ -96,11 +98,15 @@ vars:
     ##Twitter Organic schema and database variables
     twitter_organic_schema: twitter_organic_schema
     twitter_organic_database: twitter_organic_database
+
+    ##Youtube Analytics schema and database variables
+    youtube_analytics_schema: youtube_analytics_schema
+    youtube_analytics_database: youtube_analytics_database
 ```
 
 #### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
-> IMPORTANT: See the Facebook Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_facebook_pages_source/blob/main/dbt_project.yml), Instagram Business [`dbt_project.yml`](https://github.com/fivetran/dbt_instagram_business_source/blob/main/dbt_project.yml), LinkedIn Company Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_linkedin_pages_source/blob/main/dbt_project.yml), and Twitter Organic [`dbt_project.yml`](https://github.com/fivetran/dbt_twitter_organicy_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
+> IMPORTANT: See the Facebook Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_facebook_pages_source/blob/main/dbt_project.yml), Instagram Business [`dbt_project.yml`](https://github.com/fivetran/dbt_instagram_business_source/blob/main/dbt_project.yml), LinkedIn Company Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_linkedin_pages_source/blob/main/dbt_project.yml), Twitter Organic [`dbt_project.yml`](https://github.com/fivetran/dbt_twitter_organic_source/blob/main/dbt_project.yml), and Youtube Analytics [`dbt_project.yml`](https://github.com/fivetran/dbt_youtube_analytics_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
     
 ```yml
 vars:
@@ -116,6 +122,7 @@ vars:
     social_media_rollup__facebook_enabled: False
     social_media_rollup__linkedin_enabled: False
     social_media_rollup__instagram_enabled: False
+    social_media_rollup__youtube_enabled: true
 ```
 
 Next, you must disable the models in the unwanted connection's related package, which has its own configuration. Disable the relevant models under the models section of your `dbt_project.yml` file by setting the `enabled` value to `false`.
@@ -146,6 +153,12 @@ models:
     facebook_pages:
         enabled: false
     facebook_pages_source:
+        enabled: false
+    
+    # disable all youtube analytics models if not using youtube analytics
+    youtube_analytics:
+        enabled: false
+    youtube_analytics_source:
         enabled: false
 ```
 
@@ -199,6 +212,12 @@ packages:
 
     - package: fivetran/linkedin_pages_source
       version: [">=0.3.0", "<0.4.0"]
+
+    - package: fivetran/youtube_analytics
+      version: [">=0.4.0", "<0.5.0"]
+
+    - package: fivetran/youtube_analytics_source
+      version: [">=0.4.0", "<0.5.0"]
 
     - package: fivetran/fivetran_utils
       version: [">=0.4.0", "<0.5.0"]
