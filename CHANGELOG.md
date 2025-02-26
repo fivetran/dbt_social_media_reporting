@@ -1,4 +1,7 @@
-# dbt_social_media_reporting version.version
+# dbt_social_media_reporting v0.6.0
+
+## Breaking Change: Addition of Youtube Analytics
+- 
 
 ## Documentation
 - Added Quickstart model counts to README. ([#15](https://github.com/fivetran/dbt_social_media_reporting/pull/15))
