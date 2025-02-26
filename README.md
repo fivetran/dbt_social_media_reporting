@@ -131,31 +131,31 @@ _Only include the models you want to disable.  Default values are generally `tru
 
 ```yml
 models:
-    # disable both instagram business models if not using instagram business
+    # disable instagram business models if not using instagram business
     instagram_business:
         enabled: false
     instagram_business_source:
         enabled: false
   
-    # disable both linkedin company pages models if not using linkedin company pages
+    # disable linkedin company pages models if not using linkedin company pages
     linkedin_pages:
         enabled: false
     linkedin_pages_source:
         enabled: false
   
-    # disable both twitter organic models if not using twitter organic
+    # disable twitter organic models if not using twitter organic
     twitter_organic:
         enabled: false
     twitter_organic_source:
         enabled: false
     
-    # disable all three facebook pages models if not using facebook pages
+    # disable facebook pages models if not using facebook pages
     facebook_pages:
         enabled: false
     facebook_pages_source:
         enabled: false
     
-    # disable all youtube analytics models if not using youtube analytics
+    # disable youtube analytics models if not using youtube analytics
     youtube_analytics:
         enabled: false
     youtube_analytics_source:
