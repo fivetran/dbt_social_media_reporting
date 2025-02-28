@@ -19,7 +19,7 @@ multi_connector_config:
     model_variable: social_media_rollup__twitter_enabled
   youtube_analytics:
     database_key: youtube_analytics_database
-    # union_schema_key: 
+    union_schema_key: youtube_analytics_union_schemas
     model_variable: social_media_rollup__youtube_enabled
 
 table_variables: {}
