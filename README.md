@@ -1,4 +1,5 @@
-<p align="center">
+# Social Media Reporting dbt Package ([Docs](https://fivetran.github.io/dbt_social_media_reporting/))
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_social_media_reporting/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -9,8 +10,6 @@
     <a alt="PRs">
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
-
-# Social Media Reporting dbt Package ([Docs](https://fivetran.github.io/dbt_social_media_reporting/))
 
 ## What does this dbt package do?
 
@@ -175,12 +174,14 @@ vars:
     linkedin_pages_union_schemas: ['linkedin_company_pages_one', 'linkedin_company_pages_two']
     instagram_business_union_schemas: ['instagram_business_one', 'instagram_business_two', 'instagram_business_three']
     twitter_organic_union_schemas: ['twitter_social_one', 'twitter_social_two', 'twitter_social_three', 'twitter_social_four']
+    youtube_analytics_union_schemas: ['youtube_analytics_one','youtube_analytics_two']
 
     ##Databases variables
     facebook_pages_union_databases: ['facebook_pages_one','facebook_pages_two']
     linkedin_pages_union_databases: ['linkedin_company_pages_one', 'linkedin_company_pages_two']
     instagram_business_union_databases: ['instagram_business_one', 'instagram_business_two', 'instagram_business_three']
     twitter_organic_union_databases: ['twitter_social_one', 'twitter_social_two', 'twitter_social_three', 'twitter_social_four']
+    youtube_analytics_union_databases: ['youtube_analytics_one','youtube_analytics_two']
 ```
 For more configuration information, see the individual connector dbt packages ([listed above](https://github.com/fivetran/dbt_social_media_reporting#social-media-reporting)).
 
@@ -214,10 +215,10 @@ packages:
       version: [">=0.3.0", "<0.4.0"]
 
     - package: fivetran/youtube_analytics
-      version: [">=0.4.0", "<0.5.0"]
+      version: [">=0.5.0", "<0.6.0"]
 
     - package: fivetran/youtube_analytics_source
-      version: [">=0.4.0", "<0.5.0"]
+      version: [">=0.5.0", "<0.6.0"]
 
     - package: fivetran/fivetran_utils
       version: [">=0.4.0", "<0.5.0"]
