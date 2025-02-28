@@ -14,6 +14,7 @@ with report as (
         cast(default_thumbnail_url as {{ dbt.type_string() }}) as post_url,
         cast(channel_id as {{ dbt.type_string() }}) as page_id,
         cast(channel_title as {{ dbt.type_string() }}) as page_name,
+        source_relation,
         'youtube' as platform,
         coalesce(sum(views),0) as clicks,
         coalesce(sum(comments),0) as comments,
