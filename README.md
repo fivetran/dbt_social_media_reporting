@@ -121,7 +121,7 @@ vars:
     social_media_rollup__facebook_enabled: False
     social_media_rollup__linkedin_enabled: False
     social_media_rollup__instagram_enabled: False
-    social_media_rollup__youtube_enabled: true
+    social_media_rollup__youtube_enabled: False
 ```
 
 Next, you must disable the models in the unwanted connection's related package, which has its own configuration. Disable the relevant models under the models section of your `dbt_project.yml` file by setting the `enabled` value to `false`.
