@@ -1,7 +1,21 @@
 # dbt_social_media_reporting v0.6.0
+[PR #16](https://github.com/fivetran/dbt_social_media_reporting/pull/16) includes the following updates:
 
 ## Breaking Change: Addition of Youtube Analytics
-- We have added the Youtube Analytics as a platform in this package via the [dbt_youtube_analytics](https://github.com/fivetran/dbt_youtube_analytics) package. If you are not using the Youtube Analytics connection, you may disable it by following [these steps in the README](https://github.com/fivetran/dbt_social_media_reporting/blob/main/README.md#step-4-enablingdisabling-models).
+- We have added the Youtube Analytics as a platform in this package via the [dbt_youtube_analytics](https://github.com/fivetran/dbt_youtube_analytics) package. If you are not using the Youtube Analytics connection, you may disable it by following [these steps in the README](https://github.com/fivetran/dbt_social_media_reporting/blob/main/README.md#step-4-enablingdisabling-models):
+
+
+```yml
+vars:
+    social_media_rollup__youtube_enabled: False
+
+models:
+    youtube_analytics:
+        enabled: false
+    youtube_analytics_source:
+        enabled: false
+```
+
 
 ## Documentation
 - Added Quickstart model counts to README. ([#15](https://github.com/fivetran/dbt_social_media_reporting/pull/15))
