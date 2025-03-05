@@ -24,10 +24,12 @@ models:
         description: The URL of the post or video
       - name: source_relation
         description: The source of the record, if the unioning functionality is being used.
+      - name: _dbt_source_relation 
+        description: The source of the record, if the unioning functionality is being used.
       - name: platform
         description: The platform the post or video comes from
       - name: clicks
-        description: The number of clicks on the post or video
+        description: The number of clicks on the post or video. For Youtube, this is the number of views.
       - name: impressions
         description: The number of impressions on the post or video
       - name: likes
