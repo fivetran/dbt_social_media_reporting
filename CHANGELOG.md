@@ -2,7 +2,9 @@
 [PR #16](https://github.com/fivetran/dbt_social_media_reporting/pull/16) includes the following updates:
 
 ## Breaking Change: Addition of Youtube Analytics
-- We have added the Youtube Analytics as a platform in this package via the `youtube__video_report` model from the [dbt_youtube_analytics](https://github.com/fivetran/dbt_youtube_analytics) package. For Quickstart users, this is enabled/disabled automatically based on the presence of `youtube_analytics` data. For other users, this is enabled by default. Therefore if you are not using the Youtube Analytics connection, you may disable it by following [these steps in the README](https://github.com/fivetran/dbt_social_media_reporting/blob/main/README.md#step-4-enablingdisabling-models) or by including the configuration shown below in your `dbt_project.yml` file:
+- We have added Youtube Analytics as a platform in this package via the `youtube__video_report` model from the [dbt_youtube_analytics](https://github.com/fivetran/dbt_youtube_analytics) package. 
+  - For Quickstart users, this is enabled/disabled automatically based on the presence of `youtube_analytics` data. 
+  - For other users, this is enabled by default. However, if you are not using the Youtube Analytics connection, you may disable it by following [these steps in the README](https://github.com/fivetran/dbt_social_media_reporting/blob/main/README.md#step-4-enablingdisabling-models) or by including the configuration shown below in your `dbt_project.yml` file:
 
 ```yml
 vars:
