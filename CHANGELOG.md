@@ -2,8 +2,7 @@
 [PR #16](https://github.com/fivetran/dbt_social_media_reporting/pull/16) includes the following updates:
 
 ## Breaking Change: Addition of Youtube Analytics
-- We have added the Youtube Analytics as a platform in this package via the [dbt_youtube_analytics](https://github.com/fivetran/dbt_youtube_analytics) package. If you are not using the Youtube Analytics connection, you may disable it by following [these steps in the README](https://github.com/fivetran/dbt_social_media_reporting/blob/main/README.md#step-4-enablingdisabling-models) or by including the configuration shown below in your `dbt_project.yml` file:
-
+- We have added the Youtube Analytics as a platform in this package via the `youtube__video_report` model from the [dbt_youtube_analytics](https://github.com/fivetran/dbt_youtube_analytics) package. For Quickstart users, this is enabled/disabled automatically based on the presence of `youtube_analytics` data. For other users, this is enabled by default. Therefore if you are not using the Youtube Analytics connection, you may disable it by following [these steps in the README](https://github.com/fivetran/dbt_social_media_reporting/blob/main/README.md#step-4-enablingdisabling-models) or by including the configuration shown below in your `dbt_project.yml` file:
 
 ```yml
 vars:
@@ -16,10 +15,14 @@ models:
         enabled: false
 ```
 
-
 ## Documentation
 - Added Quickstart model counts to README. ([#15](https://github.com/fivetran/dbt_social_media_reporting/pull/15))
 - Corrected references to connectors and connections in the README. ([#15](https://github.com/fivetran/dbt_social_media_reporting/pull/15))
+
+## Under the Hood
+- Updated Copyright and README format.
+- Updated `comparison__rollup_report` validation test to correctly reference `_social_media_dev`.
+- Added table variables for the upstream Youtube Analytics package in the `quickstart.yml`.
 
 # dbt_social_media_reporting v0.5.0
 

@@ -22,7 +22,10 @@ multi_connector_config:
     union_schema_key: youtube_analytics_union_schemas
     model_variable: social_media_rollup__youtube_enabled
 
-table_variables: {}
+table_variables:
+  youtube__using_channel_demographics:
+    - channel_demographics_a_1
+
 
 destination_configurations:
   databricks:
