@@ -10,7 +10,7 @@ with prod as (
 
 dev as (
     select *
-    from {{ target.schema }}_social_media_prod.social_media_reporting__rollup_report
+    from {{ target.schema }}_social_media_dev.social_media_reporting__rollup_report
 ),
 
 prod_not_in_dev as (

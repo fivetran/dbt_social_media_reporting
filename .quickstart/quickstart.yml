@@ -17,8 +17,15 @@ multi_connector_config:
     database_key: twitter_organic_database
     union_schema_key: twitter_organic_union_schemas
     model_variable: social_media_rollup__twitter_enabled
+  youtube_analytics:
+    database_key: youtube_analytics_database
+    union_schema_key: youtube_analytics_union_schemas
+    model_variable: social_media_rollup__youtube_enabled
 
-table_variables: {}
+table_variables:
+  youtube__using_channel_demographics:
+    - channel_demographics_a_1
+
 
 destination_configurations:
   databricks:
