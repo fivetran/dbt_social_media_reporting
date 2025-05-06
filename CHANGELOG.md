@@ -1,3 +1,9 @@
+# dbt_social_media_reporting v0.7.0
+[PR #20](https://github.com/fivetran/dbt_social_media_reporting/pull/20) includes the following updates:
+
+## Breaking changes
+- Determination of `impressions` in `social_media_reporting__instagram_posts_reporting`.
+
 # dbt_social_media_reporting v0.6.0
 [PR #16](https://github.com/fivetran/dbt_social_media_reporting/pull/16) includes the following updates:
 

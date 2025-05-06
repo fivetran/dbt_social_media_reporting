@@ -1,6 +1,6 @@
-_fivetran_id,_fivetran_synced,carousel_album_engagement,carousel_album_impressions,carousel_album_reach,carousel_album_saved,carousel_album_video_views,comment_count,id,like_count,story_exits,story_impressions,story_reach,story_replies,story_taps_back,story_taps_forward,video_photo_engagement,video_photo_impressions,video_photo_reach,video_photo_saved,video_views
-HHKa3JBGx1RRxWfgqqMXC6ewgc4=,2021-10-27T14:22:01.906,,,,,,1,17875951606801054,3,,,,,,,4,56,43,0,
-zzVHxeqeogmAzEWFVvBrhOwm5w0=,2021-10-27T14:22:01.901,,,,,,1,17846746730324230,7,,,,,,,8,79,57,0,
-E3Z4FOw/J3joWUdHoLL1FXIGrXE=,2021-10-27T14:22:01.904,,,,,,0,17912811451468757,5,,,,,,,5,96,60,0,54
-3SGiNeVHbYUzwaX/VLXQArKHOl0=,2021-10-27T14:22:01.896,,,,,,0,17927058817426962,10,,,,,,,10,68,53,0,47
-15mSp2H5q1GUJYqTXy8Z2ln+3eY=,2021-10-27T14:22:01.899,4,68,47,0,0,0,17866678285999550,4,,,,,,,,,,0,0
+_fivetran_id,_fivetran_synced,carousel_album_engagement,carousel_album_reach,carousel_album_saved,carousel_album_shares,carousel_album_views,comment_count,id,like_count,story_exits,story_reach,story_replies,story_taps_back,story_taps_forward,story_shares,story_views,video_photo_engagement,video_photo_reach,video_photo_saved,video_photo_shares,video_photo_views,reel_comments,reel_likes,reel_reach,reel_shares,reel_total_interactions,reel_views,source_relation,carousel_album_impressions,carousel_album_video_views,story_impressions,video_photo_impressions,video_views,reel_plays
+HHKa3JBGx1RRxWfgqqMXC6ewgc4=,2021-10-27T14:22:01.906,4,47,2,1,22,1,17875951606801054,3,1,33,0,0,1,2,25,4,43,0,1,56,1,2,4,5,6,78,source_1,68,0,88,56,54,11
+zzVHxeqeogmAzEWFVvBrhOwm5w0=,2021-10-27T14:22:01.901,5,52,1,0,12,1,17846746730324230,7,0,29,0,1,2,3,28,8,57,0,0,79,1,2,4,5,6,82,source_2,61,0,84,79,67,10
+E3Z4FOw/J3joWUdHoLL1FXIGrXE=,2021-10-27T14:22:01.904,3,49,3,1,18,0,17912811451468757,5,1,31,1,1,3,4,31,5,60,0,2,96,1,2,4,5,6,91,source_3,59,0,83,96,60,9
+3SGiNeVHbYUzwaX/VLXQArKHOl0=,2021-10-27T14:22:01.896,2,46,0,0,15,0,17927058817426962,10,0,35,0,0,2,1,30,10,53,0,0,68,1,2,4,5,6,85,source_4,62,0,87,68,47,8
+15mSp2H5q1GUJYqTXy8Z2ln+3eY=,2021-10-27T14:22:01.899,4,47,0,0,14,0,17866678285999550,4,1,32,0,0,0,2,27,9,51,0,1,72,1,2,4,5,6,88,source_5,63,0,85,72,49,7
