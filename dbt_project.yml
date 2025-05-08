@@ -8,11 +8,6 @@ vars:
   linkedin_posts_report: "{{ ref('linkedin_pages__posts') }}"
   instagram_posts_report: "{{ ref('instagram_business__posts') }}"
   youtube_videos_report: "{{ ref('youtube__video_report') }}"
-  social_media_rollup__twitter_enabled: true
-  social_media_rollup__facebook_enabled: true
-  social_media_rollup__linkedin_enabled: true
-  social_media_rollup__instagram_enabled: true
-  social_media_rollup__youtube_enabled: true
 models:
   social_media_reporting:
     +schema: social_media_reporting

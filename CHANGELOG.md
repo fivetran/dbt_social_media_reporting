@@ -1,8 +1,27 @@
 # dbt_social_media_reporting v0.7.0
 [PR #20](https://github.com/fivetran/dbt_social_media_reporting/pull/20) includes the following updates:
 
-## Breaking changes
-- Determination of `impressions` in `social_media_reporting__instagram_posts_reporting`.
+## Instagram Business – Breaking Change
+- Applied the schema changes below to align with the [April 2025](https://fivetran.com/docs/connectors/applications/instagram-business/changelog#april2025) and [December 2024](https://fivetran.com/docs/connectors/applications/instagram-business/changelog#december2024) Fivetran connector updates:
+  - Deprecated metrics are retained for backward compatibility but will be removed in a future release.
+  - See the [Instagram API documentation](https://developers.facebook.com/docs/instagram-platform/reference/instagram-media/insights) for more detail on the updated fields.
+- Updated the determination of `impressions` in the `social_media_reporting__instagram_posts_reporting` model:
+  - As Instagram has deprecated certain "impressions" fields in favor of "views", we now coalesce available `views` and `impressions` into a single field named `impressions`.
+  - This approach preserves compatibility with the downstream the `social_media_reporting__rollup_report` model.
+  - Note: This may slightly alter reported values for some media types.
+  - The decision is also documented in the [DECISIONLOG](https://github.com/fivetran/dbt_social_media_reporting/blob/main/DECISIONLOG.md).
+
+
+## Schema Changes  
+4 total changes • 0 possible breaking changes  
+
+| Data Model | Change type | Old name | New name | Notes |
+|------------|-------------|----------|----------|-------|
+| [`instagram_business__posts`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.instagram_business__posts) | New Columns | | `carousel_album_shares`, `carousel_album_views`, `story_shares`, `story_views`, `video_photo_shares`, `reel_views` | |
+| [`instagram_business__posts`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.instagram_business__posts) | Deprecated Columns | `carousel_album_impressions`, `carousel_album_video_views`, `story_impressions`, `video_photo_impressions`, `video_views`, `reel_plays` | | Retained for backward compatibility but will be removed in a future release |
+| [`stg_instagram_business__media_insights`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.stg_instagram_business__media_insights) | New Columns | | `carousel_album_shares`, `carousel_album_views`, `story_shares`, `story_views`, `video_photo_shares`, `reel_views`, `source_relation` | |
+| [`stg_instagram_business__media_insights`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.stg_instagram_business__media_insights) | Deprecated Columns | `carousel_album_impressions`, `carousel_album_video_views`, `story_impressions`, `video_photo_impressions`, `video_views`, `reel_plays` | | Retained for backward compatibility but will be removed in a future release  |
+
 
 # dbt_social_media_reporting v0.6.0
 [PR #16](https://github.com/fivetran/dbt_social_media_reporting/pull/16) includes the following updates:
