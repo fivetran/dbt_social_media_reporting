@@ -11,7 +11,6 @@
   - Note: This may slightly alter reported values for some media types.
   - The decision is also documented in the [DECISIONLOG](https://github.com/fivetran/dbt_social_media_reporting/blob/main/DECISIONLOG.md).
 
-
 ## Schema Changes  
 4 total changes • 0 possible breaking changes  
 

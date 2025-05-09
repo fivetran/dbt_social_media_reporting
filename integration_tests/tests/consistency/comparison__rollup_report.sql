@@ -1,15 +1,38 @@
-{{ config(
-    tags="fivetran_validations",
-    enabled=var('fivetran_validation_tests_enabled', false)
-) }}
+{{ config(tags="fivetran_validations", enabled=var('fivetran_validation_tests_enabled', false)) }}
+
+{% set table_name = 'social_media_reporting__rollup_report' %}
+{% set exclude_cols = '(' ~ var('exclude_comparison_columns', '_dbt_source_relation')  ~ ')' %}
+
+-- Find the common columns to use in the comparison. This currently only works for BQ.
+{% if execute and target.type == 'bigquery' %}
+{% set common_cols_query %}
+    select column_name
+    from {{ target.database }}.{{ target.schema }}_social_media_prod.INFORMATION_SCHEMA.COLUMNS
+    where lower(table_name) = '{{ table_name }}'
+    and lower(column_name) not in {{ exclude_cols }}
+
+    intersect distinct
+
+    select column_name
+    from {{ target.database }}.{{ target.schema }}_social_media_dev.INFORMATION_SCHEMA.COLUMNS
+    where lower(table_name) = '{{ table_name }}'
+    and lower(column_name) not in {{ exclude_cols }}
+{% endset %}
+
+{% set common_cols = run_query(common_cols_query).columns[0].values() %}
+{% set column_list = common_cols | join(', ') %}
+
+{% else %}
+{% set column_list = '*' %}
+{% endif %}
 
 with prod as (
-    select *
+    select {{ column_list }}
     from {{ target.schema }}_social_media_prod.social_media_reporting__rollup_report
 ),
 
 dev as (
-    select *
+    select {{ column_list }}
     from {{ target.schema }}_social_media_dev.social_media_reporting__rollup_report
 ),
 
