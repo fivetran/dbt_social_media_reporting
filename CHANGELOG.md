@@ -22,6 +22,16 @@
 | [`stg_instagram_business__media_insights`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.stg_instagram_business__media_insights) | Deprecated Columns | `carousel_album_impressions`, `carousel_album_video_views`, `story_impressions`, `video_photo_impressions`, `video_views`, `reel_plays` | | Retained for backward compatibility but will be removed in a future release  |
 
 
+## Under the Hood
+- Updated consistency test to only take columns that are found in both dev and prod so we can test those cols are unchanged.
+- Updated vars with a pre-defined default in-line in models rather than being defined in the packages dbt_project.yml. This is avoid conflict with a user's dbt_project.yml and follows the practices used by the rest of our packages.
+- Updated syntax for `get_staging_files` macro for to be in line with other packages. 
+
+## Under the Hood
+- Updated the consistency test to only include columns present in both dev and prod, ensuring that the consistency test can run with that is common.
+- Moved default `var` definitions in-line within models instead of defining them in the package’s `dbt_project.yml` to prevent conflicts with a user’s own `dbt_project.yml`, aligning with practices used in other packages.
+- Standardized the syntax of the `get_staging_files` macro to match conventions used across other packages.
+
 # dbt_social_media_reporting v0.6.0
 [PR #16](https://github.com/fivetran/dbt_social_media_reporting/pull/16) includes the following updates:
 
