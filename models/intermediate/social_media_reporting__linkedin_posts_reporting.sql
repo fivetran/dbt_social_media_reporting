@@ -1,4 +1,4 @@
-{{ config(enabled=var('social_media_rollup__linkedin_enabled')) }}
+{{ config(enabled=var('social_media_rollup__linkedin_enabled', True)) }}
 
 with report as (
 

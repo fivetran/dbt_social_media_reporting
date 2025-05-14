@@ -1,4 +1,4 @@
-{{ config(enabled=var('social_media_rollup__youtube_enabled')) }}
+{{ config(enabled=var('social_media_rollup__youtube_enabled', True)) }}
 
 with report as (
 
