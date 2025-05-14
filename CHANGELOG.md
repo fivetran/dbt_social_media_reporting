@@ -4,7 +4,7 @@
 ## Instagram Business
 ## Schema/Data Changes
 
-4 total changes • 1 possible breaking changes  
+5 total changes • 1 possible breaking changes  
 
 | Data Model | Change type | Old name | New name | Notes |
 |------------|-------------|----------|----------|-------|
