@@ -1,9 +1,7 @@
 # dbt_social_media_reporting v0.7.0
-[PR #20](https://github.com/fivetran/dbt_social_media_reporting/pull/20) includes the following updates:
+[PR #20](https://github.com/fivetran/dbt_social_media_reporting/pull/20) includes the following updates for **Instagram Business**:
 
-## Instagram Business
 ## Schema/Data Changes
-
 5 total changes • 1 possible breaking changes  
 
 | Data Model | Change type | Old name | New name | Notes |
@@ -14,8 +12,8 @@
 | [`stg_instagram_business__media_insights`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.stg_instagram_business__media_insights) | New Columns | | `carousel_album_shares`, `carousel_album_views`, `story_shares`, `story_views`, `video_photo_shares`, `video_photo_views`, `reel_views` | |
 | [`stg_instagram_business__media_insights`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.stg_instagram_business__media_insights) | Deprecated Columns | `carousel_album_impressions`, `carousel_album_video_views`, `story_impressions`, `video_photo_impressions`, `video_views`, `reel_plays` | | Retained for backward compatibility but will be removed in a future release  |
 
-## Breaking Changes
-- The schema changes align with the [April 2025](https://fivetran.com/docs/connectors/applications/instagram-business/changelog#april2025) and [December 2024](https://fivetran.com/docs/connectors/applications/instagram-business/changelog#december2024) Fivetran connector updates:
+## Updates
+- The schema changes align with the [April 2025](https://fivetran.com/docs/connectors/applications/instagram-business/changelog#april2025) and [December 2024](https://fivetran.com/docs/connectors/applications/instagram-business/changelog#december2024) Fivetran Instagram Business connector updates:
   - Deprecated metrics are retained for backward compatibility but will be removed in a future release.
   - See the [Instagram API documentation](https://developers.facebook.com/docs/instagram-platform/reference/instagram-media/insights) for more detail on the updated fields.
 
