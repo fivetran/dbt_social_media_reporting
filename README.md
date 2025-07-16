@@ -1,14 +1,18 @@
 # Social Media Reporting dbt Package ([Docs](https://fivetran.github.io/dbt_social_media_reporting/))
+
 <p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_social_media_reporting/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
     <a alt="dbt-core">
-        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_<2.0.0-orange.svg" /></a>
+        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_,<2.0.0-orange.svg" /></a>
     <a alt="Maintained?">
         <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
     <a alt="PRs">
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
+    <a alt="Fivetran Quickstart Compatible"
+        href="https://fivetran.com/docs/transformations/dbt/quickstart">
+        <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
 ## What does this dbt package do?
@@ -106,7 +110,7 @@ vars:
 #### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
 > IMPORTANT: See the Facebook Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_facebook_pages_source/blob/main/dbt_project.yml), Instagram Business [`dbt_project.yml`](https://github.com/fivetran/dbt_instagram_business_source/blob/main/dbt_project.yml), LinkedIn Company Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_linkedin_pages_source/blob/main/dbt_project.yml), Twitter Organic [`dbt_project.yml`](https://github.com/fivetran/dbt_twitter_organic_source/blob/main/dbt_project.yml), and Youtube Analytics [`dbt_project.yml`](https://github.com/fivetran/dbt_youtube_analytics_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
-    
+
 ```yml
 vars:
     <default_source_table_name>_identifier: your_table_name 
@@ -135,25 +139,25 @@ models:
         enabled: false
     instagram_business_source:
         enabled: false
-  
+
     # disable linkedin company pages models if not using linkedin company pages
     linkedin_pages:
         enabled: false
     linkedin_pages_source:
         enabled: false
-  
+
     # disable twitter organic models if not using twitter organic
     twitter_organic:
         enabled: false
     twitter_organic_source:
         enabled: false
-    
+
     # disable facebook pages models if not using facebook pages
     facebook_pages:
         enabled: false
     facebook_pages_source:
         enabled: false
-    
+
     # disable youtube analytics models if not using youtube analytics
     youtube_analytics:
         enabled: false

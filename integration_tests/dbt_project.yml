@@ -60,6 +60,8 @@ models:
     +materialized: table
 
 seeds:
+  +docs:
+    show: False
   social_media_rollup_integration_tests:
     tweet:
       +column_types: 
@@ -114,3 +116,7 @@ seeds:
     youtube_video_data:
       +column_types:
         snippet_thumbnails: "{{ 'string' if target.type in ('bigquery','spark','databricks') else 'varchar' }}"
+
+flags:
+  send_anonymous_usage_stats: False
+  use_colors: True
