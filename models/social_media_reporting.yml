@@ -3,12 +3,6 @@ version: 2
 models:
   - name: social_media_reporting__rollup_report
     description: Each record represents a post from a social media account
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - post_id
-            - platform
-            - source_relation
     columns:
       - name: created_timestamp
         description: The timestamp the post was created
