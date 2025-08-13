@@ -75,7 +75,7 @@ Include the following github package version in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/social_media_reporting
-    version: [">=0.7.0", "<0.8.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=1.0.0", "<1.1.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 Do NOT include the upstream social media packages in this file. The transformation package itself has a dependency on it and will install the upstream packages as well.
 
@@ -109,7 +109,7 @@ vars:
 
 #### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
-> IMPORTANT: See the Facebook Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_facebook_pages_source/blob/main/dbt_project.yml), Instagram Business [`dbt_project.yml`](https://github.com/fivetran/dbt_instagram_business_source/blob/main/dbt_project.yml), LinkedIn Company Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_linkedin_pages_source/blob/main/dbt_project.yml), Twitter Organic [`dbt_project.yml`](https://github.com/fivetran/dbt_twitter_organic_source/blob/main/dbt_project.yml), and Youtube Analytics [`dbt_project.yml`](https://github.com/fivetran/dbt_youtube_analytics_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
+> IMPORTANT: See the Facebook Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_facebook_pages/blob/main/dbt_project.yml), Instagram Business [`dbt_project.yml`](https://github.com/fivetran/dbt_instagram_business/blob/main/dbt_project.yml), LinkedIn Company Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_linkedin_pages/blob/main/dbt_project.yml), Twitter Organic [`dbt_project.yml`](https://github.com/fivetran/dbt_twitter_organic/blob/main/dbt_project.yml), and Youtube Analytics [`dbt_project.yml`](https://github.com/fivetran/dbt_youtube_analytics/blob/main/dbt_project.yml) variable declarations to see the expected names.
 
 ```yml
 vars:
@@ -137,31 +137,21 @@ models:
     # disable instagram business models if not using instagram business
     instagram_business:
         enabled: false
-    instagram_business_source:
-        enabled: false
 
     # disable linkedin company pages models if not using linkedin company pages
     linkedin_pages:
-        enabled: false
-    linkedin_pages_source:
         enabled: false
 
     # disable twitter organic models if not using twitter organic
     twitter_organic:
         enabled: false
-    twitter_organic_source:
-        enabled: false
 
     # disable facebook pages models if not using facebook pages
     facebook_pages:
         enabled: false
-    facebook_pages_source:
-        enabled: false
 
     # disable youtube analytics models if not using youtube analytics
     youtube_analytics:
-        enabled: false
-    youtube_analytics_source:
         enabled: false
 ```
 
@@ -195,34 +185,19 @@ This dbt package is dependent on the following dbt packages. These dependencies 
 ```yml
 packages:
     - package: fivetran/facebook_pages
-      version: [">=0.3.0", "<0.4.0"]
-
-    - package: fivetran/facebook_pages_source
-      version: [">=0.3.0", "<0.4.0"]
+      version: [">=1.0.0", "<1.1.0"]
 
     - package: fivetran/instagram_business
-      version: [">=0.3.0", "<0.4.0"]
-
-    - package: fivetran/instagram_business_source
-      version: [">=0.3.0", "<0.4.0"]
+      version: [">=1.0.0", "<1.1.0"]
 
     - package: fivetran/twitter_organic
-      version: [">=0.3.0", "<0.4.0"]
-
-    - package: fivetran/twitter_organic_source
-      version: [">=0.3.0", "<0.4.0"]
+      version: [">=1.0.0", "<1.1.0"]
 
     - package: fivetran/linkedin_pages
-      version: [">=0.3.0", "<0.4.0"]
-
-    - package: fivetran/linkedin_pages_source
-      version: [">=0.3.0", "<0.4.0"]
+      version: [">=1.0.0", "<1.1.0"]
 
     - package: fivetran/youtube_analytics
-      version: [">=0.5.0", "<0.6.0"]
-
-    - package: fivetran/youtube_analytics_source
-      version: [">=0.5.0", "<0.6.0"]
+      version: [">=1.0.0", "<1.1.0"]
 
     - package: fivetran/fivetran_utils
       version: [">=0.4.0", "<0.5.0"]
