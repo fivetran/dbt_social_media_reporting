@@ -8,6 +8,10 @@
   - Removed all `accepted_values` tests.
   - Moved `loaded_at_field: _fivetran_synced` under the `config:` block in `src_social_media_reporting.yml`.
 
+## Under the Hood
+- Updated conditions in `.github/workflows/auto-release.yml`.
+- Added `.github/workflows/generate-docs.yml`.
+
 # dbt_social_media_reporting v0.7.0
 [PR #20](https://github.com/fivetran/dbt_social_media_reporting/pull/20) includes the following updates for **Instagram Business**:
 
