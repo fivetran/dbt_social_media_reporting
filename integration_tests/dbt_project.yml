@@ -50,13 +50,13 @@ models:
   +schema: "social_media_{{ var('directed_schema','dev') }}"
   social_media_reporting:
     +materialized: table
-  facebook_pages_source:
+  facebook_pages:
     +materialized: table
-  linkedin_pages_source:
+  linkedin_pages:
     +materialized: table
-  instagram_business_source:
+  instagram_business:
     +materialized: table
-  youtube_analytics_source:
+  youtube_analytics:
     +materialized: table
 
 seeds:
