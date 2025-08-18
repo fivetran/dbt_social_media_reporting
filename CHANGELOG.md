@@ -1,4 +1,4 @@
-# dbt_social_media_reporting v0.8.0
+# dbt_social_media_reporting v1.0.0
 [PR #23](https://github.com/fivetran/dbt_social_media_reporting/pull/23) includes the following updates:
 
 ### dbt Fusion Compatibility Updates
