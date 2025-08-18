@@ -1,14 +1,18 @@
 # Social Media Reporting dbt Package ([Docs](https://fivetran.github.io/dbt_social_media_reporting/))
+
 <p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_social_media_reporting/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
     <a alt="dbt-core">
-        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_<2.0.0-orange.svg" /></a>
+        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_,<2.0.0-orange.svg" /></a>
     <a alt="Maintained?">
         <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
     <a alt="PRs">
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
+    <a alt="Fivetran Quickstart Compatible"
+        href="https://fivetran.com/docs/transformations/dbt/quickstart">
+        <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
 ## What does this dbt package do?
@@ -71,7 +75,7 @@ Include the following github package version in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/social_media_reporting
-    version: [">=0.7.0", "<0.8.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=1.0.0", "<1.1.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 Do NOT include the upstream social media packages in this file. The transformation package itself has a dependency on it and will install the upstream packages as well.
 
@@ -105,8 +109,8 @@ vars:
 
 #### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
-> IMPORTANT: See the Facebook Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_facebook_pages_source/blob/main/dbt_project.yml), Instagram Business [`dbt_project.yml`](https://github.com/fivetran/dbt_instagram_business_source/blob/main/dbt_project.yml), LinkedIn Company Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_linkedin_pages_source/blob/main/dbt_project.yml), Twitter Organic [`dbt_project.yml`](https://github.com/fivetran/dbt_twitter_organic_source/blob/main/dbt_project.yml), and Youtube Analytics [`dbt_project.yml`](https://github.com/fivetran/dbt_youtube_analytics_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
-    
+> IMPORTANT: See the Facebook Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_facebook_pages/blob/main/dbt_project.yml), Instagram Business [`dbt_project.yml`](https://github.com/fivetran/dbt_instagram_business/blob/main/dbt_project.yml), LinkedIn Company Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_linkedin_pages/blob/main/dbt_project.yml), Twitter Organic [`dbt_project.yml`](https://github.com/fivetran/dbt_twitter_organic/blob/main/dbt_project.yml), and Youtube Analytics [`dbt_project.yml`](https://github.com/fivetran/dbt_youtube_analytics/blob/main/dbt_project.yml) variable declarations to see the expected names.
+
 ```yml
 vars:
     <default_source_table_name>_identifier: your_table_name 
@@ -132,33 +136,23 @@ _Only include the models you want to disable.  Default values are generally `tru
 models:
     # disable instagram business models if not using instagram business
     instagram_business:
-        enabled: false
-    instagram_business_source:
-        enabled: false
-  
+        +enabled: false
+
     # disable linkedin company pages models if not using linkedin company pages
     linkedin_pages:
-        enabled: false
-    linkedin_pages_source:
-        enabled: false
-  
+        +enabled: false
+
     # disable twitter organic models if not using twitter organic
     twitter_organic:
-        enabled: false
-    twitter_organic_source:
-        enabled: false
-    
+        +enabled: false
+
     # disable facebook pages models if not using facebook pages
     facebook_pages:
-        enabled: false
-    facebook_pages_source:
-        enabled: false
-    
+        +enabled: false
+
     # disable youtube analytics models if not using youtube analytics
     youtube_analytics:
-        enabled: false
-    youtube_analytics_source:
-        enabled: false
+        +enabled: false
 ```
 
 ### (Optional) Step 5: Additional configurations
@@ -191,34 +185,19 @@ This dbt package is dependent on the following dbt packages. These dependencies 
 ```yml
 packages:
     - package: fivetran/facebook_pages
-      version: [">=0.3.0", "<0.4.0"]
-
-    - package: fivetran/facebook_pages_source
-      version: [">=0.3.0", "<0.4.0"]
+      version: [">=1.0.0", "<1.1.0"]
 
     - package: fivetran/instagram_business
-      version: [">=0.3.0", "<0.4.0"]
-
-    - package: fivetran/instagram_business_source
-      version: [">=0.3.0", "<0.4.0"]
+      version: [">=1.0.0", "<1.1.0"]
 
     - package: fivetran/twitter_organic
-      version: [">=0.3.0", "<0.4.0"]
-
-    - package: fivetran/twitter_organic_source
-      version: [">=0.3.0", "<0.4.0"]
+      version: [">=1.0.0", "<1.1.0"]
 
     - package: fivetran/linkedin_pages
-      version: [">=0.3.0", "<0.4.0"]
-
-    - package: fivetran/linkedin_pages_source
-      version: [">=0.3.0", "<0.4.0"]
+      version: [">=1.0.0", "<1.1.0"]
 
     - package: fivetran/youtube_analytics
-      version: [">=0.5.0", "<0.6.0"]
-
-    - package: fivetran/youtube_analytics_source
-      version: [">=0.5.0", "<0.6.0"]
+      version: [">=1.0.0", "<1.1.0"]
 
     - package: fivetran/fivetran_utils
       version: [">=0.4.0", "<0.5.0"]
@@ -232,7 +211,7 @@ packages:
 
 ## How is this package maintained and can I contribute?
 ### Package Maintenance
-The Fivetran team maintaining this package **only** maintains the latest version of the package. We highly recommend you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/github/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_social_media_reporting/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
+The Fivetran team maintaining this package **only** maintains the latest version of the package. We highly recommend you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/social_media_reporting/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_social_media_reporting/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
 
 ### Contributions
 These dbt packages are developed by a small team of analytics engineers at Fivetran. However, the packages are made better by community contributions.
