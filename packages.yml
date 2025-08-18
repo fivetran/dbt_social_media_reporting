@@ -1,27 +1,11 @@
 packages:
-# - package: fivetran/facebook_pages
-#   version: [">=1.0.0", "<1.1.0"]
-# - package: fivetran/instagram_business
-#   version: [">=1.0.0", "<1.1.0"]
-# - package: fivetran/twitter_organic
-#   version: [">=1.0.0", "<1.1.0"]
-# - package: fivetran/linkedin_pages
-#   version: [">=1.0.0", "<1.1.0"]
-# - package: fivetran/youtube_analytics
-#   version: [">=1.0.0", "<1.1.0"]
-
-- git: https://github.com/fivetran/dbt_facebook_pages.git
-  revision: MagicBot/consolidate-source-package
-  warn-unpinned: false
-- git: https://github.com/fivetran/dbt_instagram_business.git
-  revision: MagicBot/consolidate-source-package
-  warn-unpinned: false
-- git: https://github.com/fivetran/dbt_twitter_organic.git
-  revision: MagicBot/consolidate-source-package
-  warn-unpinned: false
-- git: https://github.com/fivetran/dbt_linkedin_pages.git
-  revision: MagicBot/consolidate-source-package
-  warn-unpinned: false
-- git: https://github.com/fivetran/dbt_youtube_analytics.git
-  revision: MagicBot/consolidate-source-package
-  warn-unpinned: false
+- package: fivetran/facebook_pages
+  version: [">=1.0.0", "<1.1.0"]
+- package: fivetran/instagram_business
+  version: [">=1.0.0", "<1.1.0"]
+- package: fivetran/twitter_organic
+  version: [">=1.0.0", "<1.1.0"]
+- package: fivetran/linkedin_pages
+  version: [">=1.0.0", "<1.1.0"]
+- package: fivetran/youtube_analytics
+  version: [">=1.0.0", "<1.1.0"]
