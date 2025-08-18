@@ -136,23 +136,23 @@ _Only include the models you want to disable.  Default values are generally `tru
 models:
     # disable instagram business models if not using instagram business
     instagram_business:
-        enabled: false
+        +enabled: false
 
     # disable linkedin company pages models if not using linkedin company pages
     linkedin_pages:
-        enabled: false
+        +enabled: false
 
     # disable twitter organic models if not using twitter organic
     twitter_organic:
-        enabled: false
+        +enabled: false
 
     # disable facebook pages models if not using facebook pages
     facebook_pages:
-        enabled: false
+        +enabled: false
 
     # disable youtube analytics models if not using youtube analytics
     youtube_analytics:
-        enabled: false
+        +enabled: false
 ```
 
 ### (Optional) Step 5: Additional configurations
@@ -211,7 +211,7 @@ packages:
 
 ## How is this package maintained and can I contribute?
 ### Package Maintenance
-The Fivetran team maintaining this package **only** maintains the latest version of the package. We highly recommend you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/github/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_social_media_reporting/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
+The Fivetran team maintaining this package **only** maintains the latest version of the package. We highly recommend you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/social_media_reporting/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_social_media_reporting/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
 
 ### Contributions
 These dbt packages are developed by a small team of analytics engineers at Fivetran. However, the packages are made better by community contributions.
