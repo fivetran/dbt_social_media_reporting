@@ -5,7 +5,10 @@ packages:
   version: [">=1.0.0", "<1.1.0"]
 - package: fivetran/twitter_organic
   version: [">=1.0.0", "<1.1.0"]
-- package: fivetran/linkedin_pages
-  version: [">=1.0.0", "<1.1.0"]
+# - package: fivetran/linkedin_pages
+#   version: [">=1.0.0", "<1.1.0"]
+- git: https://github.com/fivetran/dbt_linkedin_pages.git
+  revision: bugfix/documentation-tab-removal
+  warn-unpinned: false 
 - package: fivetran/youtube_analytics
   version: [">=1.0.0", "<1.1.0"]
