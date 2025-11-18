@@ -1,5 +1,7 @@
 # dbt_social_media_reporting v1.1.0
 
+[PR #27](https://github.com/fivetran/dbt_social_media_reporting/pull/27) includes the following updates:
+
 ## Schema/Data Change
 **1 total change • 0 possible breaking change**
 
