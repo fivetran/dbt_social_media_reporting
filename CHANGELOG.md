@@ -1,3 +1,18 @@
+# dbt_social_media_reporting v1.1.0
+
+## Schema/Data Change
+**1 total change • 0 possible breaking change**
+
+| Data Model(s) | Change type | Old | New | Notes |
+| ---------- | ----------- | -------- | -------- | ----- |
+| [`social_media_reporting__rollup_report`](https://fivetran.github.io/dbt_social_media_reporting/#!/model/model.social_media_reporting.social_media_reporting__rollup_report) | Deprecated Column (Facebook Pages only) | `impressions` | `impressions` | The impressions field for Facebook Pages has been deprecated as of November 2025 and persists in the upstream package. The field remains active and relevant for all other platforms. An alternative solution will be provided in a future release. |
+
+## Documentation
+- Updated YAML documentation to note the deprecation of the `impressions` field for the Facebook Pages platform, clarifying it will not be populated following November 2025.
+
+## Under the Hood
+- Updates to the `comparison__rollup_report` consistency test.
+
 # dbt_social_media_reporting v1.0.0
 [PR #23](https://github.com/fivetran/dbt_social_media_reporting/pull/23) includes the following updates:
 

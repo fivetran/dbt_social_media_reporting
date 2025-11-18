@@ -18,7 +18,7 @@ with report as (
         source_relation,
         'facebook' as platform,
         coalesce(sum(clicks),0) as clicks,
-        coalesce(sum(impressions),0) as impressions,
+        coalesce(sum(impressions),0) as impressions, -- Deprecated as of November, 2025. Will be removed in future release.
         coalesce(sum(likes),0) as likes
     from report
     {{ dbt_utils.group_by(8) }}
