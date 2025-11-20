@@ -25,7 +25,10 @@ models:
       - name: clicks
         description: The number of clicks on the post or video. For Youtube, this is the number of views.
       - name: impressions
-        description: The number of impressions on the post or video
+        description: >
+          The number of impressions on the post or video
+
+          NOTE: The impressions field within the Facebook Pages platform is deprecated and will not be populated following November, 2025.
       - name: likes
         description: The number of likes on the post or video
       - name: shares

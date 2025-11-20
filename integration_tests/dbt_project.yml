@@ -1,17 +1,17 @@
 name: 'social_media_rollup_integration_tests'
-version: '1.0.0'
+version: '1.1.0'
 profile: 'integration_tests'
 config-version: 2
 
 vars:
   twitter_organic:
-    twitter_organic_schema: social_media_rollup_integration_tests_2
+    twitter_organic_schema: social_media_rollup_integration_tests
     twitter_account_history_identifier: "account_history"
     twitter_organic_tweet_report_identifier: "organic_tweet_report"
     twitter_tweet_identifier: "tweet"
     twitter_twitter_user_history_identifier: "twitter_user_history"
   linkedin_pages:
-    linkedin_pages_schema: social_media_rollup_integration_tests_2
+    linkedin_pages_schema: social_media_rollup_integration_tests
     linkedin_pages_organization_identifier: "linkedin_pages_organization_data"
     linkedin_pages_organization_ugc_post_identifier: "linkedin_pages_organization_ugc_post_data"
     linkedin_pages_share_statistic_identifier: "linkedin_pages_share_statistic_data"
@@ -19,28 +19,21 @@ vars:
     linkedin_pages_ugc_post_history_identifier: "linkedin_pages_ugc_post_history_data"
     linkedin_pages_ugc_post_share_statistic_identifier: "linkedin_pages_ugc_post_share_statistic_data"
   instagram_business:
-    instagram_business_schema: social_media_rollup_integration_tests_2
+    instagram_business_schema: social_media_rollup_integration_tests
     instagram_business_media_history_identifier: "instagram_business_media_history_data"
     instagram_business_media_insights_identifier: "instagram_business_media_insights_data"
     instagram_business_user_history_identifier: "instagram_business_user_history_data"
   facebook_pages:
-    facebook_pages_schema: social_media_rollup_integration_tests_2
+    facebook_pages_schema: social_media_rollup_integration_tests
     facebook_pages_daily_page_metrics_total_identifier: "facebook_pages_daily_page_metrics_total_data"
     facebook_pages_lifetime_post_metrics_total_identifier: "facebook_pages_lifetime_post_metrics_total_data"
     facebook_pages_page_identifier: "facebook_pages_page_data"
     facebook_pages_post_history_identifier: "facebook_pages_post_history_data"
   youtube_analytics:
-    youtube_analytics_schema: social_media_rollup_integration_tests_2
+    youtube_analytics_schema: social_media_rollup_integration_tests
     youtube_analytics_channel_basic_a_2_identifier: "youtube_channel_basic_data"
     youtube_analytics_channel_demographics_a_1_identifier: "youtube_channel_demographics_data"
     youtube_analytics_video_identifier: "youtube_video_data"
-
-  ## Used for local validation testing
-  # twitter_organic_schema: <local_schema_name>
-  # linkedin_pages_schema: <local_schema_name>
-  # instagram_business_schema: <local_schema_name>
-  # facebook_pages_schema: <local_schema_name>
-  # youtube_analytics_schema: <local_schema_name>
 
 dispatch:
   - macro_namespace: dbt_utils
@@ -102,6 +95,7 @@ seeds:
     facebook_pages_daily_page_metrics_total_data:
       +column_types:
         page_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+        page_media_views: float
 
     youtube_channel_basic_data:
       +column_types:
