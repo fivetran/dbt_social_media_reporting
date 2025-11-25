@@ -5,7 +5,7 @@
         href="https://github.com/fivetran/dbt_social_media_reporting/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
     <a alt="dbt-core">
-        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_,<2.0.0-orange.svg" /></a>
+        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0,_<3.0.0-orange.svg" /></a>
     <a alt="Maintained?">
         <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
     <a alt="PRs">
@@ -75,7 +75,7 @@ Include the following github package version in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/social_media_reporting
-    version: [">=1.1.0", "<1.2.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=1.2.0", "<1.3.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 Do NOT include the upstream social media packages in this file. The transformation package itself has a dependency on it and will install the upstream packages as well.
 
