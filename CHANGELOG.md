@@ -1,3 +1,9 @@
+# dbt_social_media_reporting v1.2.0
+[PR #29](https://github.com/fivetran/dbt_social_media_reporting/pull/29) includes the following updates:
+
+## Features
+- Increases the required dbt version upper limit to v3.0.0.
+
 # dbt_social_media_reporting v1.1.0
 
 [PR #27](https://github.com/fivetran/dbt_social_media_reporting/pull/27) includes the following updates:

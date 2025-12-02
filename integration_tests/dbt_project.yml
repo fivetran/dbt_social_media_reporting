@@ -1,5 +1,5 @@
 name: 'social_media_rollup_integration_tests'
-version: '1.1.0'
+version: '1.2.0'
 profile: 'integration_tests'
 config-version: 2
 
@@ -89,13 +89,14 @@ seeds:
     facebook_pages_lifetime_post_metrics_total_data:
       +column_types:
         post_id: "{{ 'string' if target.type in ['bigquery', 'spark', 'databricks'] else 'varchar' }}"
+        post_media_view: float
     facebook_pages_page_data:
       +column_types:
         id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
     facebook_pages_daily_page_metrics_total_data:
       +column_types:
         page_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
-        page_media_views: float
+        page_media_view: float
 
     youtube_channel_basic_data:
       +column_types:
