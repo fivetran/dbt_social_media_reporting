@@ -185,19 +185,19 @@ This dbt package is dependent on the following dbt packages. These dependencies 
 ```yml
 packages:
     - package: fivetran/facebook_pages
-      version: [">=1.1.0", "<1.2.0"]
+      version: [">=1.2.0", "<1.3.0"]
 
     - package: fivetran/instagram_business
-      version: [">=1.0.0", "<1.1.0"]
+      version: [">=1.1.0", "<1.2.0"]
 
     - package: fivetran/twitter_organic
-      version: [">=1.0.0", "<1.1.0"]
+      version: [">=1.1.0", "<1.2.0"]
 
     - package: fivetran/linkedin_pages
-      version: [">=1.0.0", "<1.1.0"]
+      version: [">=1.1.0", "<1.2.0"]
 
     - package: fivetran/youtube_analytics
-      version: [">=1.0.0", "<1.1.0"]
+      version: [">=1.1.0", "<1.2.0"]
 
     - package: fivetran/fivetran_utils
       version: [">=0.4.0", "<0.5.0"]
