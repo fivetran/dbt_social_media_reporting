@@ -8,12 +8,12 @@ with report as (
 ), fields as (
 
     select
-        account_name as page_name,
-        user_id as page_id,
-        post_caption as post_message,
+        cast(account_name as {{ dbt.type_string() }}) as page_name,
+        cast(user_id as {{ dbt.type_string() }}) as page_id,
+        cast(post_caption as {{ dbt.type_string() }}) as post_message,
         created_timestamp,
         cast(post_id as {{ dbt.type_string() }}) as post_id,
-        post_url,
+        cast(post_url as {{ dbt.type_string() }}) as post_url,
         source_relation,
         'instagram' as platform,
         coalesce(sum(comment_count),0) as comments,
