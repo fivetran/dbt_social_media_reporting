@@ -8,14 +8,14 @@ with report as (
 ), fields as (
 
     select        
-        organization_id as page_id,
-        organization_name as page_name,
+        cast(organization_id as {{ dbt.type_string() }}) as page_id,
+        cast(organization_name as {{ dbt.type_string() }}) as page_name,
         cast(ugc_post_id  as {{ dbt.type_string() }}) as post_id,
         created_timestamp,
-        post_url,
+        cast(post_url as {{ dbt.type_string() }}) as post_url,
         source_relation,
         'linkedin' as platform,
-        coalesce(post_title, commentary) as post_message,
+        cast(coalesce(post_title, commentary) as {{ dbt.type_string() }}) as post_message,
         coalesce(sum(click_count),0) as clicks,
         coalesce(sum(comment_count),0) as comments,
         coalesce(sum(impression_count),0) as impressions,

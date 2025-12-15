@@ -21,7 +21,7 @@ with report as (
         coalesce(sum(likes),0) as likes,
         coalesce(sum(shares),0) as shares
     from report
-    {{ dbt_utils.group_by(7) }}
+    {{ dbt_utils.group_by(8) }}
 
 )
 
