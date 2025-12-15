@@ -5,7 +5,7 @@
 - Adds explicit string casting for `page_id`, `page_name`, `post_message`, and `post_url` fields across all platform reporting models (`social_media_reporting__facebook_posts_reporting`, `social_media_reporting__instagram_posts_reporting`, `social_media_reporting__linkedin_posts_reporting`, `social_media_reporting__twitter_posts_reporting`) to ensure consistent data types.
 
 ## Under the Hood
-- Updates `social_media_reporting__youtube_videos_reporting` to use `dbt_utils.group_by(8)` instead of `group_by(7)` to maintain consistency with other platform reporting models.
+- Updates `social_media_reporting__youtube_videos_reporting` to include the `platform` field in the group by statement in order to maintain consistency with other platform reporting models.
 
 # dbt_social_media_reporting v1.2.0
 [PR #29](https://github.com/fivetran/dbt_social_media_reporting/pull/29) includes the following updates:
