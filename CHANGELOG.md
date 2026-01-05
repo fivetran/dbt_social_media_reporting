@@ -1,3 +1,9 @@
+# dbt_social_media_reporting v1.3.1
+[PR #31](https://github.com/fivetran/dbt_social_media_reporting/pull/31) includes the following updates:
+
+## Bug Fix
+- Fixes double-counting of Instagram impressions in `social_media_reporting__instagram_posts_reporting`. Instagram's API populates multiple fields with the same value for certain media types (CAROUSEL_ALBUM and VIDEO/Reels), causing impressions to be counted twice when summing all view metrics. The fix uses a CASE statement to select only one metric per post based on media type, preventing duplicate counting.
+
 # dbt_social_media_reporting v1.3.0
 [PR #30](https://github.com/fivetran/dbt_social_media_reporting/pull/30) includes the following updates:
 
