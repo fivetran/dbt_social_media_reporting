@@ -9,8 +9,8 @@ In response to Instagram's metric consolidation, we have updated our data transf
 In our transformation layer, we maintain separate fields for the legacy (`*_impressions`) and new (`*_views`) metrics to preserve transparency and auditability. However, for this rollup package, we have chosen to combine these metrics into a unified `impressions` field, by using `coalesce(*_views, *_impressions)`, to ensure continuity with the other social media platforms.
 
 **Important Note on Duplicate Values**  
-Instagram's API populates multiple fields with the same value for certain media types:
+Fivetran's Instagram Connector populates multiple fields with the same value for certain media types:
 - `CAROUSEL_ALBUM` posts: Both `carousel_album_views` AND `video_photo_views` contain identical values
 - `VIDEO` (Reels): Both `reel_views` AND `video_photo_views` contain identical values
 
-To prevent double-counting, the `impressions` calculation in `social_media_reporting__instagram_posts_reporting` uses a CASE statement that selects only one metric per post based on which fields are populated, prioritizing media-type-specific metrics over generic `video_photo_views`.
+To prevent double-counting, the `impressions` calculation in `social_media_reporting__instagram_posts_reporting` counts only `video_photo_views` or `video_photo_impressions`, which is the basis for both `carousel_album` and `reel` impressions/views.
