@@ -1,5 +1,5 @@
 name: 'social_media_rollup_integration_tests'
-version: '1.3.0'
+version: '1.3.1'
 profile: 'integration_tests'
 config-version: 2
 
@@ -118,3 +118,4 @@ seeds:
 flags:
   send_anonymous_usage_stats: False
   use_colors: True
+  use_materialization_v2: True

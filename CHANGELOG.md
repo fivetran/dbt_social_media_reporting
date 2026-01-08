@@ -1,3 +1,9 @@
+# dbt_social_media_reporting v1.3.1
+[PR #33](https://github.com/fivetran/dbt_social_media_reporting/pull/33) includes the following updates:
+
+## Bug Fix
+- Fixes double-counting of Instagram impressions in `social_media_reporting__instagram_posts_reporting`. Fivetran's Instagram Connector populates multiple fields with the same value for certain media types (CAROUSEL_ALBUM and VIDEO/Reels). Previously, the model summed all view metrics, which counted impressions twice. The fix takes `video_photo_views` or `video_photo_impressions`, which is the basis for both `carousel_album` and `reel` impressions/views.
+
 # dbt_social_media_reporting v1.3.0
 [PR #30](https://github.com/fivetran/dbt_social_media_reporting/pull/30) includes the following updates:
 
