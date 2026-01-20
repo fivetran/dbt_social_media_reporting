@@ -64,7 +64,7 @@ Each Quickstart transformation job run materializes the following model counts f
 
 | **Connector** | **Model Count** |
 | ------------- | --------------- |
-| Social Media Reporting | 5 |
+| Social Media Reporting | 6 |
 | [Facebook Pages](https://github.com/fivetran/dbt_facebook_pages) | 11 |
 | [Instagram Business](https://github.com/fivetran/dbt_instagram_business) | 7 |
 | [LinkedIn Company Pages](https://github.com/fivetran/dbt_linkedin_pages) | 15 |
