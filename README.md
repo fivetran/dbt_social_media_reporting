@@ -20,10 +20,13 @@ This dbt package transforms data from Fivetran's Social Media Reporting connecto
 
 ## Resources
 
-- Number of materialized models¹: 5
+- Number of materialized models¹: 6
 - Connector documentation
-  - [Social Media Reporting connector documentation](https://fivetran.com/docs/connectors/applications/social-media-reporting)
-  - [Social Media Reporting ERD](https://fivetran.com/docs/connectors/applications/social-media-reporting#schemainformation)
+  - [Facebook Pages connector documentation](https://fivetran.com/docs/connectors/applications/facebook-pages)
+  - [Instagram Business connector documentation](https://fivetran.com/docs/connectors/applications/instagram-business)
+  - [Twitter Organic connector documentation](https://fivetran.com/docs/connectors/applications/twitter)
+  - [Linkedin Pages connector documentation](https://fivetran.com/docs/connectors/applications/linkedin-company-pages)
+  - [Youtube Analytics connector documentation](https://fivetran.com/docs/connectors/applications/youtube-analytics)
 - dbt package documentation
   - [GitHub repository](https://github.com/fivetran/dbt_social_media_reporting)
   - [dbt Docs](https://fivetran.github.io/dbt_social_media_reporting/#!/overview)
@@ -54,7 +57,7 @@ By default, this package materializes the following final tables:
 
 | Table | Description |
 | :---- | :---- |
-| [social_media_reporting__rollup_report](https://github.com/fivetran/dbt_social_media_reporting/blob/main/models/social_media_reporting__rollup_report.sql) | Consolidates post performance across multiple social media platforms (Facebook, Instagram, LinkedIn, Twitter, and YouTube Analytics) to compare engagement, reach, and content effectiveness in one unified view. <br></br>**Example Analytics Questions:**<ul><li>Which social media platform drives the highest engagement and reach for your content?</li><li>How does content performance compare across different platforms and account types?</li><li>What posting strategies work best across your entire social media presence?</li></ul>|
+| [social_media_reporting__rollup_report](https://fivetran.github.io/dbt_social_media_reporting/#!/model/model.social_media_reporting.social_media_reporting__rollup_report) | Consolidates post performance across multiple social media platforms (Facebook, Instagram, LinkedIn, Twitter, and YouTube Analytics) to compare engagement, reach, and content effectiveness in one unified view. <br></br>**Example Analytics Questions:**<ul><li>Which social media platform drives the highest engagement and reach for your content?</li><li>How does content performance compare across different platforms and account types?</li><li>What posting strategies work best across your entire social media presence?</li></ul>|
 
 ### Materialized Models
 Each Quickstart transformation job run materializes the following model counts for each selected connector. The total model count represents all staging, intermediate, and final models, materialized as `view`, `table`, or `incremental`:
