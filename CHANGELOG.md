@@ -1,3 +1,14 @@
+# dbt_social_media_reporting v1.4.0
+
+[PR #34](https://github.com/fivetran/dbt_social_media_reporting/pull/34) includes the following updates:
+
+## Documentation
+- Updates README with standardized Fivetran formatting
+
+## Under the Hood
+## Upstream Dependency Changes
+- Increases the required Linkedin Pages package to version [1.2.0](https://github.com/fivetran/dbt_linkedin_pages/releases/tag/v1.2.0)
+
 # dbt_social_media_reporting v1.3.1
 [PR #33](https://github.com/fivetran/dbt_social_media_reporting/pull/33) includes the following updates:
 
