@@ -86,6 +86,8 @@ To use this dbt package, you must have the following:
 
 > While you need only one of the above connections to utilize this package, we recommend having at least two to gain the rollup benefit of this package.
 
+<!--section-end-->
+
 ## How do I use the dbt package?
 You can either add this dbt package in the Fivetran dashboard or import it into your dbt project:
 
