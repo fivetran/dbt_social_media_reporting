@@ -1,5 +1,5 @@
 # dbt_social_media_reporting v1.5.0
-
+[PR #35](https://github.com/fivetran/dbt_social_media_reporting/pull/35) includes the following updates:
 
 ## Schema/Data Change **(--full-refresh required after upgrading)**
 **20 total changes • 12 of which are breaking in the form of materialization updates**
