@@ -17,7 +17,7 @@
 | `stg_linkedin_pages__share_share_statistic` | New model | - | All columns | Mapping between shares and share statistics. |
 
 ## Under the Hood 
-- Added seed files for new LinkedIn data sources. 
+- Added seed files for new LinkedIn data sources, as well as designed column types to ensure no data type confusion errors. 
 
 # dbt_social_media_reporting v1.4.0
 
