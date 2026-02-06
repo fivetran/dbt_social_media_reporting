@@ -84,7 +84,6 @@ seeds:
         share_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
     linkedin_pages_ugc_post_history_data:
       +column_types:
-        _fivetran_synced: "{%- if target.type == 'bigquery' -%} TIMESTAMP {%- elif target.type == 'databricks' -%} timestamp {%- else -%} timestamp {%- endif -%}"
         created_time: "{%- if target.type == 'bigquery' -%} TIMESTAMP {%- elif target.type == 'databricks' -%} timestamp {%- else -%} timestamp {%- endif -%}"
         first_published_at: "{%- if target.type == 'bigquery' -%} TIMESTAMP {%- elif target.type == 'databricks' -%} timestamp {%- else -%} timestamp {%- endif -%}"
         last_modified_time: "{%- if target.type == 'bigquery' -%} TIMESTAMP {%- elif target.type == 'databricks' -%} timestamp {%- else -%} timestamp {%- endif -%}"
@@ -102,7 +101,6 @@ seeds:
     linkedin_pages_share_history_data:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
-        _fivetran_synced: "{%- if target.type == 'bigquery' -%} TIMESTAMP {%- elif target.type == 'databricks' -%} timestamp {%- else -%} timestamp {%- endif -%}"
         created_time: "{%- if target.type == 'bigquery' -%} TIMESTAMP {%- elif target.type == 'databricks' -%} timestamp {%- else -%} timestamp {%- endif -%}"
         first_published_at: "{%- if target.type == 'bigquery' -%} TIMESTAMP {%- elif target.type == 'databricks' -%} timestamp {%- else -%} timestamp {%- endif -%}"
         last_modified_time: "{%- if target.type == 'bigquery' -%} TIMESTAMP {%- elif target.type == 'databricks' -%} timestamp {%- else -%} timestamp {%- endif -%}"
