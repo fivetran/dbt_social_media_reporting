@@ -1,40 +1,36 @@
 name: 'social_media_rollup_integration_tests'
-version: '1.5.0'
+version: '1.4.0'
 profile: 'integration_tests'
 config-version: 2
 
 vars:
   twitter_organic:
-    twitter_organic_schema: zz_dbt_avinash_seed
+    twitter_organic_schema: social_media_rollup_integration_tests
     twitter_account_history_identifier: "account_history"
     twitter_organic_tweet_report_identifier: "organic_tweet_report"
     twitter_tweet_identifier: "tweet"
     twitter_twitter_user_history_identifier: "twitter_user_history"
   linkedin_pages:
-    linkedin_pages_schema: zz_dbt_avinash_seed
+    linkedin_pages_schema: social_media_rollup_integration_tests
     linkedin_pages_organization_identifier: "linkedin_pages_organization_data"
     linkedin_pages_organization_ugc_post_identifier: "linkedin_pages_organization_ugc_post_data"
     linkedin_pages_share_statistic_identifier: "linkedin_pages_share_statistic_data"
     linkedin_pages_post_content_identifier: "linkedin_pages_post_content_data"
     linkedin_pages_ugc_post_history_identifier: "linkedin_pages_ugc_post_history_data"
     linkedin_pages_ugc_post_share_statistic_identifier: "linkedin_pages_ugc_post_share_statistic_data"
-    linkedin_pages_organization_share_identifier: "linkedin_pages_organization_share_data"
-    linkedin_pages_share_content_identifier: "linkedin_pages_share_content_data"
-    linkedin_pages_share_history_identifier: "linkedin_pages_share_history_data" 
-    linkedin_pages_share_share_statistic_identifier: "linkedin_pages_share_share_statistic_data" 
   instagram_business:
-    instagram_business_schema: zz_dbt_avinash_seed
+    instagram_business_schema: social_media_rollup_integration_tests
     instagram_business_media_history_identifier: "instagram_business_media_history_data"
     instagram_business_media_insights_identifier: "instagram_business_media_insights_data"
     instagram_business_user_history_identifier: "instagram_business_user_history_data"
   facebook_pages:
-    facebook_pages_schema: zz_dbt_avinash_seed
+    facebook_pages_schema: social_media_rollup_integration_tests
     facebook_pages_daily_page_metrics_total_identifier: "facebook_pages_daily_page_metrics_total_data"
     facebook_pages_lifetime_post_metrics_total_identifier: "facebook_pages_lifetime_post_metrics_total_data"
     facebook_pages_page_identifier: "facebook_pages_page_data"
     facebook_pages_post_history_identifier: "facebook_pages_post_history_data"
   youtube_analytics:
-    youtube_analytics_schema: zz_dbt_avinash_seed
+    youtube_analytics_schema: social_media_rollup_integration_tests
     youtube_analytics_channel_basic_a_2_identifier: "youtube_channel_basic_data"
     youtube_analytics_channel_demographics_a_1_identifier: "youtube_channel_demographics_data"
     youtube_analytics_video_identifier: "youtube_video_data"
@@ -70,47 +66,10 @@ seeds:
       +column_types:
         organic_tweet_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
 
-  linkedin_pages_integration_tests:
     linkedin_pages_ugc_post_share_statistic_data:
       +column_types:
         ugc_post_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
-    linkedin_pages_share_share_statistic_data:
-      +column_types:
-        share_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
-    linkedin_pages_organization_share_data:
-      +column_types:
-        share_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
-    linkedin_pages_share_content_data:
-      +column_types:
-        share_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
-    linkedin_pages_ugc_post_history_data:
-      +column_types:
-        author: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        commentary: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        container_entity: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        created_actor: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        distribution_external_distribution_channels: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        distribution_feed_distribution: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        last_modified_actor: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        lifecycle_state: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        response_context_parent: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        response_context_root: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        visibility: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-    linkedin_pages_share_history_data:
-      +column_types:
-        id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
-        author: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        commentary: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        container_entity: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        created_actor: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        distribution_external_distribution_channels: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        distribution_feed_distribution: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        last_modified_actor: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        lifecycle_state: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        response_context_parent: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        response_context_root: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        visibility: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-      
+        
     instagram_business_media_history_data:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}" 
