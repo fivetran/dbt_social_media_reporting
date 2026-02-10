@@ -84,37 +84,11 @@ seeds:
         share_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
     linkedin_pages_ugc_post_history_data:
       +column_types:
-        created_time: "{%- if target.type == 'bigquery' -%} TIMESTAMP {%- elif target.type == 'databricks' -%} timestamp {%- else -%} timestamp {%- endif -%}"
-        first_published_at: "{%- if target.type == 'bigquery' -%} TIMESTAMP {%- elif target.type == 'databricks' -%} timestamp {%- else -%} timestamp {%- endif -%}"
-        last_modified_time: "{%- if target.type == 'bigquery' -%} TIMESTAMP {%- elif target.type == 'databricks' -%} timestamp {%- else -%} timestamp {%- endif -%}"
-        author: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        commentary: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        container_entity: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
         created_actor: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        distribution_external_distribution_channels: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        distribution_feed_distribution: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
         last_modified_actor: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        lifecycle_state: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        response_context_parent: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        response_context_root: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        visibility: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
     linkedin_pages_share_history_data:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
-        created_time: "{%- if target.type == 'bigquery' -%} TIMESTAMP {%- elif target.type == 'databricks' -%} timestamp {%- else -%} timestamp {%- endif -%}"
-        first_published_at: "{%- if target.type == 'bigquery' -%} TIMESTAMP {%- elif target.type == 'databricks' -%} timestamp {%- else -%} timestamp {%- endif -%}"
-        last_modified_time: "{%- if target.type == 'bigquery' -%} TIMESTAMP {%- elif target.type == 'databricks' -%} timestamp {%- else -%} timestamp {%- endif -%}"
-        author: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        commentary: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        container_entity: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        created_actor: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        distribution_external_distribution_channels: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        distribution_feed_distribution: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        last_modified_actor: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        lifecycle_state: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        response_context_parent: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        response_context_root: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
-        visibility: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
   
     instagram_business_media_history_data:
       +column_types:
