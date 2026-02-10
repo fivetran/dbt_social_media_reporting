@@ -2,7 +2,7 @@
 [PR #35](https://github.com/fivetran/dbt_social_media_reporting/pull/35) includes the following updates:
 
 ## Schema/Data Change **(--full-refresh required after upgrading)**
-**20 total changes • 12 of which are breaking in the form of materialization updates**
+**21 total changes • 13 of which are breaking in the form of materialization updates**
 
 | Data Model(s) | Change type | Old | New | Notes |
 | ---------- | ----------- | -------- | -------- | ----- |
