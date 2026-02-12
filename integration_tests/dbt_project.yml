@@ -1,5 +1,5 @@
 name: 'social_media_rollup_integration_tests'
-version: '1.4.0'
+version: '1.5.0'
 profile: 'integration_tests'
 config-version: 2
 
@@ -18,6 +18,10 @@ vars:
     linkedin_pages_post_content_identifier: "linkedin_pages_post_content_data"
     linkedin_pages_ugc_post_history_identifier: "linkedin_pages_ugc_post_history_data"
     linkedin_pages_ugc_post_share_statistic_identifier: "linkedin_pages_ugc_post_share_statistic_data"
+    linkedin_pages_organization_share_identifier: "linkedin_pages_organization_share_data"
+    linkedin_pages_share_content_identifier: "linkedin_pages_share_content_data"
+    linkedin_pages_share_history_identifier: "linkedin_pages_share_history_data" 
+    linkedin_pages_share_share_statistic_identifier: "linkedin_pages_share_share_statistic_data" 
   instagram_business:
     instagram_business_schema: social_media_rollup_integration_tests
     instagram_business_media_history_identifier: "instagram_business_media_history_data"
@@ -69,7 +73,23 @@ seeds:
     linkedin_pages_ugc_post_share_statistic_data:
       +column_types:
         ugc_post_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
-        
+    linkedin_pages_share_share_statistic_data:
+      +column_types:
+        share_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+    linkedin_pages_organization_share_data:
+      +column_types:
+        share_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+    linkedin_pages_share_content_data:
+      +column_types:
+        share_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+    linkedin_pages_ugc_post_history_data:
+      +column_types:
+        created_actor: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
+        last_modified_actor: "{%- if target.type == 'bigquery' -%} STRING {%- elif target.type == 'databricks' -%} string {%- else -%} varchar {%- endif -%}"
+    linkedin_pages_share_history_data:
+      +column_types:
+        id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+  
     instagram_business_media_history_data:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}" 

@@ -67,7 +67,7 @@ Each Quickstart transformation job run materializes the following model counts f
 | Social Media Reporting | 6 |
 | [Facebook Pages](https://github.com/fivetran/dbt_facebook_pages) | 11 |
 | [Instagram Business](https://github.com/fivetran/dbt_instagram_business) | 7 |
-| [LinkedIn Company Pages](https://github.com/fivetran/dbt_linkedin_pages) | 15 |
+| [LinkedIn Company Pages](https://github.com/fivetran/dbt_linkedin_pages) | 23 |
 | [Twitter Organic](https://github.com/fivetran/dbt_twitter_organic) | 11 |
 | [Youtube Analytics](https://github.com/fivetran/dbt_youtube_analytics) | 11 |
 
@@ -103,7 +103,7 @@ Include the following github package version in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/social_media_reporting
-    version: [">=1.4.0", "<1.5.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=1.5.0", "<1.6.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 Do NOT include the upstream social media packages in this file. The transformation package itself has a dependency on it and will install the upstream packages as well.
 
@@ -230,7 +230,7 @@ packages:
       version: [">=1.1.0", "<1.2.0"]
 
     - package: fivetran/linkedin_pages
-      version: [">=1.1.0", "<1.2.0"]
+      version: [">=1.3.0", "<1.4.0"]
 
     - package: fivetran/youtube_analytics
       version: [">=1.1.0", "<1.2.0"]

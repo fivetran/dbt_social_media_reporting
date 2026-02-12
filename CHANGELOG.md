@@ -1,3 +1,25 @@
+# dbt_social_media_reporting v1.5.0
+[PR #35](https://github.com/fivetran/dbt_social_media_reporting/pull/35) includes the following updates:
+
+## Schema/Data Change **(--full-refresh required after upgrading)**
+**21 total changes • 13 of which are breaking in the form of materialization updates**
+
+| Data Model(s) | Change type | Old | New | Notes |
+| ---------- | ----------- | -------- | -------- | ----- |
+| `stg_linkedin_pages__organization`<br> `stg_linkedin_pages__organization_ugc_post`<br> `stg_linkedin_pages__post_content`<br> `stg_linkedin_pages__share_statistic`<br> `stg_linkedin_pages__ugc_post_history`<br> `stg_linkedin_pages__ugc_post_share_statistic`<br> (as well as the upstream tmp models for each model) | Materialization | Table | View | **Breaking:** These staging models are now views. Upon full refresh, the package will automatically drop the tables and recreate them as views. However, we recommend reviewing your schema and manually dropping any remaining staging models materialized as tables as they will no longer be updated in favor of the materialized views. |
+| `linkedin_pages__posts` | Renamed column | `ugc_post_id` | `post_id` | **Breaking:** Column renamed to reflect that the model now includes both UGC posts and shares. |
+| `social_media_reporting__rollup_report` | Data expansion | UGC posts only | UGC posts + shares | Linkedin Pages data will now includes both UGC posts and LinkedIn shares. |
+| `social_media_reporting__linkedin_posts_reporting` | Data expansion | UGC posts only | UGC posts + shares | Linkedin Pages data will now includes both UGC posts and LinkedIn shares. |
+| `linkedin_pages__posts` | Data expansion | UGC posts only | UGC posts + shares | Model now includes both UGC posts and LinkedIn shares. |
+| `linkedin_pages__posts` | Added column | | `content_type` | Indicates whether the post is from 'ugc' (UGC post) or 'share' (LinkedIn share). |
+| `stg_linkedin_pages__organization_share` | New model | | | Mapping table between organizations and shares. |
+| `stg_linkedin_pages__share_content` | New model | | | Content of shares (articles, images, polls, text). |
+| `stg_linkedin_pages__share_history` | New model | | | Version history of shares with metadata. |
+| `stg_linkedin_pages__share_share_statistic` | New model | | | Mapping between shares and share statistics. |
+
+## Under the Hood 
+- Added seed files for new LinkedIn data sources, as well as designed column types to ensure no data type confusion errors. 
+
 # dbt_social_media_reporting v1.4.0
 
 [PR #34](https://github.com/fivetran/dbt_social_media_reporting/pull/34) includes the following updates:
