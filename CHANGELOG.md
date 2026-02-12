@@ -11,7 +11,7 @@
 | `social_media_reporting__rollup_report` | Data expansion | UGC posts only | UGC posts + shares | Linkedin Pages data will now includes both UGC posts and LinkedIn shares. |
 | `social_media_reporting__linkedin_posts_reporting` | Data expansion | UGC posts only | UGC posts + shares | Linkedin Pages data will now includes both UGC posts and LinkedIn shares. |
 | `linkedin_pages__posts` | Data expansion | UGC posts only | UGC posts + shares | Model now includes both UGC posts and LinkedIn shares. |
-| `linkedin_pages__posts` | Added column | - | `content_type` | Indicates whether the post is from 'ugc' (UGC post) or 'share' (LinkedIn share). |
+| `linkedin_pages__posts` | Added column | | `content_type` | Indicates whether the post is from 'ugc' (UGC post) or 'share' (LinkedIn share). |
 | `stg_linkedin_pages__organization_share` | New model | | | Mapping table between organizations and shares. |
 | `stg_linkedin_pages__share_content` | New model | | | Content of shares (articles, images, polls, text). |
 | `stg_linkedin_pages__share_history` | New model | | | Version history of shares with metadata. |
