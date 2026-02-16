@@ -89,13 +89,13 @@ To use this dbt package, you must have the following:
 
 > While you need only one of the above connections to utilize this package, we recommend having at least two to gain the rollup benefit of this package.
 
-<!--section-end-->
-
 ## How do I use the dbt package?
 You can either add this dbt package in the Fivetran dashboard or import it into your dbt project:
 
 - To add the package in the Fivetran dashboard, follow our [Quickstart guide](https://fivetran.com/docs/transformations/data-models/quickstart-management#quickstartmanagement).
 - To add the package to your dbt project, follow the setup instructions in the dbt package's [README file](https://github.com/fivetran/dbt_social_media_reporting/blob/main/README.md#how-do-i-use-the-dbt-package) to use this package.
+
+<!--section-end-->
 
 ### Installing the Package
 Include the following github package version in your `packages.yml`
