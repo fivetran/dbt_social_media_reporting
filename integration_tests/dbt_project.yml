@@ -47,6 +47,9 @@ models:
   +persist_docs:
     relation: true
     columns: true
+  +persist_docs:
+    relation: true
+    columns: true
   +schema: "social_media_{{ var('directed_schema','dev') }}"
   social_media_reporting:
     +materialized: table
