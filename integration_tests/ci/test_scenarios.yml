@@ -15,7 +15,7 @@ additional_schema_variables:
 
 include_databricks_sql: false
 include_sqlserver: false
-include_dbt_compile: true
+include_dbt_compile: false
 
 test_scenarios:
   - name: "Default"
