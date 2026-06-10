@@ -1,3 +1,10 @@
+# dbt_social_media_reporting v1.6.0
+
+[PR #36](https://github.com/fivetran/dbt_social_media_reporting/pull/36) includes the following updates:
+
+## Upstream Dependency Changes
+- Increases the required [LinkedIn Pages](https://github.com/fivetran/dbt_linkedin_pages) package to version [v1.3.0](https://github.com/fivetran/dbt_linkedin_pages/releases/tag/v1.3.0)
+
 # dbt_social_media_reporting v1.5.0
 [PR #35](https://github.com/fivetran/dbt_social_media_reporting/pull/35) includes the following updates:
 
