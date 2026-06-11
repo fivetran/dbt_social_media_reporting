@@ -59,6 +59,7 @@ Each Quickstart transformation job run materializes the following model counts f
 | [Youtube Analytics](https://github.com/fivetran/dbt_youtube_analytics) | 11 |
 
 ¹ Each Quickstart transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
+
 ---
 
 ## Prerequisites
@@ -94,8 +95,6 @@ packages:
 ```
 Do NOT include the upstream social media packages in this file. The transformation package itself has a dependency on it and will install the upstream packages as well.
 
-Do NOT include the individual social media packages in this file. This package has dependencies on the packages and will install them as well.
-
 #### Databricks Dispatch Configuration
 If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
 ```yml
@@ -106,7 +105,7 @@ dispatch:
 
 ### Define database and schema variables
 #### Option A: Single connection(s)
-By default, this package looks for your Social Media data in your target database. If this is not where your Social Media data is stored, add the relevant `<connector>_database` variables to your `dbt_project.yml` file (see below).
+By default, this package looks for your social media data in your target database. If this is not where your social media data is stored, add the relevant `<connector>_database` variables to your `dbt_project.yml` file (see below).
 
 ```yml
 vars:
