@@ -48,6 +48,7 @@ models:
     relation: true
     columns: "{{ false if target.type in ('databricks') else true }}"
   +schema: "social_media_{{ var('directed_schema','dev') }}"
+  +quote_columns: "{{ target.type in ('redshift') or var('fivetran_using_source_casing', false) }}"
   social_media_reporting:
     +materialized: table
   facebook_pages:
