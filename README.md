@@ -59,6 +59,7 @@ Each Quickstart transformation job run materializes the following model counts f
 | [Youtube Analytics](https://github.com/fivetran/dbt_youtube_analytics) | 11 |
 
 ¹ Each Quickstart transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
+
 ---
 
 ## Prerequisites
@@ -67,7 +68,7 @@ To use this dbt package, you must have the following:
 - At least one Fivetran Social Media Reporting connection syncing data into your destination.
 - A BigQuery, Snowflake, Redshift, Postgres, or Databricks destination.
 
-**Connector**: Have at least one of the below supported Fivetran ad platform connections syncing data into your destination. This package currently supports:
+**Connector**: Have at least one of the below supported Fivetran social media platform connections syncing data into your destination. This package currently supports:
 - [Facebook Pages](https://fivetran.com/docs/connectors/applications/facebook-pages)
 - [Instagram Business](https://fivetran.com/docs/connectors/applications/instagram-business)
 - [LinkedIn Company Pages](https://fivetran.com/docs/connectors/applications/linkedin-company-pages)
@@ -90,11 +91,9 @@ Include the following github package version in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/social_media_reporting
-    version: [">=1.5.0", "<1.6.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=1.6.0", "<1.7.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 Do NOT include the upstream social media packages in this file. The transformation package itself has a dependency on it and will install the upstream packages as well.
-
-Do NOT include the individual social media packages in this file. This package has dependencies on the packages and will install them as well.
 
 #### Databricks Dispatch Configuration
 If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
@@ -104,8 +103,9 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 ```
 
-### Configure Database and Schema Variables
-By default, this package looks for your social media reporting data in your target database. If this is not where your app platform data is stored, add the relevant `<connection>_database` variables to your `dbt_project.yml` file (see below).
+### Define database and schema variables
+#### Option A: Single connection(s)
+By default, this package looks for your social media data in your target database. If this is not where your social media data is stored, add the relevant `<connector>_database` variables to your `dbt_project.yml` file (see below).
 
 ```yml
 vars:
@@ -130,14 +130,65 @@ vars:
     youtube_analytics_database: youtube_analytics_database
 ```
 
-#### Change the source table references
-If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
-> IMPORTANT: See the Facebook Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_facebook_pages/blob/main/dbt_project.yml), Instagram Business [`dbt_project.yml`](https://github.com/fivetran/dbt_instagram_business/blob/main/dbt_project.yml), LinkedIn Company Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_linkedin_pages/blob/main/dbt_project.yml), Twitter Organic [`dbt_project.yml`](https://github.com/fivetran/dbt_twitter_organic/blob/main/dbt_project.yml), and Youtube Analytics [`dbt_project.yml`](https://github.com/fivetran/dbt_youtube_analytics/blob/main/dbt_project.yml) variable declarations to see the expected names.
+#### Option B: Union multiple connections
+If you have multiple social media platform connections of the same type in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. For each source table, the package will union all of the data together and pass the unioned table into the transformations. The `source_relation` column in each model indicates the origin of each record.
 
+To use this functionality, you will need to set the below variables in your root `dbt_project.yml` file:
 ```yml
+# dbt_project.yml
+
 vars:
-    <default_source_table_name>_identifier: your_table_name 
+  facebook_pages_sources:
+    - database: connection_1_destination_name # Required
+      schema: connection_1_schema_name # Required
+      name: connection_1_source_name # Required only if following the step in the following subsection
+
+    - database: connection_2_destination_name
+      schema: connection_2_schema_name
+      name: connection_2_source_name
+
+  instagram_business_sources:
+    - database: connection_1_destination_name # Required
+      schema: connection_1_schema_name # Required
+      name: connection_1_source_name # Required only if following the step in the following subsection
+
+    - database: connection_2_destination_name
+      schema: connection_2_schema_name
+      name: connection_2_source_name
+
+  twitter_organic_sources:
+    - database: connection_1_destination_name # Required
+      schema: connection_1_schema_name # Required
+      name: connection_1_source_name # Required only if following the step in the following subsection
+
+    - database: connection_2_destination_name
+      schema: connection_2_schema_name
+      name: connection_2_source_name
+
+  linkedin_pages_sources:
+    - database: connection_1_destination_name # Required
+      schema: connection_1_schema_name # Required
+      name: connection_1_source_name # Required only if following the step in the following subsection
+
+    - database: connection_2_destination_name
+      schema: connection_2_schema_name
+      name: connection_2_source_name
+
+  youtube_analytics_sources:
+    - database: connection_1_destination_name # Required
+      schema: connection_1_schema_name # Required
+      name: connection_1_source_name # Required only if following the step in the following subsection
+
+    - database: connection_2_destination_name
+      schema: connection_2_schema_name
+      name: connection_2_source_name
 ```
+
+> Previous versions of this package employed two separate, mutually exclusive variables for unioning for each platform: (eg. `facebook_pages_union_schemas` and `facebook_pages_union_databases`). While these variables are still supported, the new approach shared above are the recommended variables to configure.
+
+#### Optional: Incorporate unioned sources into DAG
+
+If you use [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt#transformationsfordbtcore) and are unioning multiple social media platform connections of the same type, you can define your sources in a property `.yml` file. Set the variable `has_defined_sources: true` in your `dbt_project.yml`. Otherwise, your connections won't appear in your DAG. See the `union_connections` macro [documentation](https://github.com/fivetran/dbt_fivetran_utils/tree/releases/v0.4.latest#optional-union-connections-defined-sources-configuration) for full configuration details.
 
 ### Enabling/Disabling Models
 The package assumes that all connector models are enabled, so it will look to pull data from all of the connections [listed above](https://github.com/fivetran/dbt_social_media_reporting#social-media-reporting). If you don't want to use certain connections, disable those connections' models in this package by setting the relevant variables to `false`:
@@ -179,28 +230,22 @@ models:
 ```
 
 ### (Optional) Additional configurations
-#### Unioning Multiple Social Media Connections
-If you have multiple social media connections in Fivetran, you can use this package on all of them simultaneously. The package will union all of the data together and then pass the unioned table(s) into the reporting model. You will be able to see which source the data came from in the `source_relation` column of each model. To use this functionality, you will need to set either the `union_schemas` or `union_databases` variables:
-
-> IMPORTANT: You _cannot_ use both the `union_schemas` and `union_databases` variables.
+#### Change the source table references
+If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
+> IMPORTANT: See the Facebook Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_facebook_pages/blob/main/dbt_project.yml), Instagram Business [`dbt_project.yml`](https://github.com/fivetran/dbt_instagram_business/blob/main/dbt_project.yml), LinkedIn Company Pages [`dbt_project.yml`](https://github.com/fivetran/dbt_linkedin_pages/blob/main/dbt_project.yml), Twitter Organic [`dbt_project.yml`](https://github.com/fivetran/dbt_twitter_organic/blob/main/dbt_project.yml), and Youtube Analytics [`dbt_project.yml`](https://github.com/fivetran/dbt_youtube_analytics/blob/main/dbt_project.yml) variable declarations to see the expected names.
 
 ```yml
 vars:
-    ##Schemas variables
-    facebook_pages_union_schemas: ['facebook_pages_one','facebook_pages_two']
-    linkedin_pages_union_schemas: ['linkedin_company_pages_one', 'linkedin_company_pages_two']
-    instagram_business_union_schemas: ['instagram_business_one', 'instagram_business_two', 'instagram_business_three']
-    twitter_organic_union_schemas: ['twitter_social_one', 'twitter_social_two', 'twitter_social_three', 'twitter_social_four']
-    youtube_analytics_union_schemas: ['youtube_analytics_one','youtube_analytics_two']
-
-    ##Databases variables
-    facebook_pages_union_databases: ['facebook_pages_one','facebook_pages_two']
-    linkedin_pages_union_databases: ['linkedin_company_pages_one', 'linkedin_company_pages_two']
-    instagram_business_union_databases: ['instagram_business_one', 'instagram_business_two', 'instagram_business_three']
-    twitter_organic_union_databases: ['twitter_social_one', 'twitter_social_two', 'twitter_social_three', 'twitter_social_four']
-    youtube_analytics_union_databases: ['youtube_analytics_one','youtube_analytics_two']
+    <default_source_table_name>_identifier: your_table_name 
 ```
-For more configuration information, see the individual connector dbt packages ([listed above](https://github.com/fivetran/dbt_social_media_reporting#social-media-reporting)).
+
+#### Source casing for case-sensitive destinations
+By default, the package applies case-insensitive comparisons when resolving `source_relation` values. If your destination is case-sensitive and you want downstream transformations to respect the exact casing of your source database and schema names, set the following variable:
+
+```yml
+vars:
+    fivetran_using_source_casing: true
+```
 
 ## Does this package have dependencies?
 This dbt package is dependent on the following dbt packages. These dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
@@ -208,19 +253,19 @@ This dbt package is dependent on the following dbt packages. These dependencies 
 ```yml
 packages:
     - package: fivetran/facebook_pages
-      version: [">=1.2.0", "<1.3.0"]
-
-    - package: fivetran/instagram_business
-      version: [">=1.1.0", "<1.2.0"]
-
-    - package: fivetran/twitter_organic
-      version: [">=1.1.0", "<1.2.0"]
-
-    - package: fivetran/linkedin_pages
       version: [">=1.3.0", "<1.4.0"]
 
+    - package: fivetran/instagram_business
+      version: [">=1.2.0", "<1.3.0"]
+
+    - package: fivetran/twitter_organic
+      version: [">=1.2.0", "<1.3.0"]
+
+    - package: fivetran/linkedin_pages
+      version: [">=1.4.0", "<1.5.0"]
+
     - package: fivetran/youtube_analytics
-      version: [">=1.1.0", "<1.2.0"]
+      version: [">=1.2.0", "<1.3.0"]
 
     - package: fivetran/fivetran_utils
       version: [">=0.4.0", "<0.5.0"]

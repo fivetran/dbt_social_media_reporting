@@ -1,3 +1,24 @@
+# dbt_social_media_reporting v1.6.0
+
+[PR #36](https://github.com/fivetran/dbt_social_media_reporting/pull/36) includes the following updates:
+
+## Schema/Data Changes (--full-refresh required after upgrading)
+**1 total change • 1 possible breaking change**
+
+| Data Model(s) | Change type | Old | New | Notes |
+| ------------- | ----------- | --- | --- | ----- |
+| All models | `source_relation` column (when not using the union connections of the same type feature) | Empty string (`''`) | `<database>.<schema>` |  |
+
+## Feature Updates
+- Introduces the new (recommended) `{connector_name}_sources` variables for more robust union data configuration. The old `{connector_name}_union_schemas` and `{connector_name}_union_databases` variables will still be supported. See the [README](https://github.com/fivetran/dbt_social_media_reporting/tree/main#define-database-and-schema-variables) for specific details.
+
+## Upstream Dependency Changes
+- Increases the required Facebook Pages package to version [1.3.0](https://github.com/fivetran/dbt_facebook_pages/releases/tag/v1.3.0)
+- Increases the required Instagram Business package to version [1.2.0](https://github.com/fivetran/dbt_instagram_business/releases/tag/v1.2.0)
+- Increases the required Twitter Organic package to version [1.2.0](https://github.com/fivetran/dbt_twitter_organic/releases/tag/v1.2.0)
+- Increases the required LinkedIn Pages package to version [1.4.0](https://github.com/fivetran/dbt_linkedin_pages/releases/tag/v1.4.0)
+- Increases the required YouTube Analytics package to version [1.4.0](https://github.com/fivetran/dbt_youtube_analytics/releases/tag/v1.2.0)
+
 # dbt_social_media_reporting v1.5.0
 [PR #35](https://github.com/fivetran/dbt_social_media_reporting/pull/35) includes the following updates:
 
