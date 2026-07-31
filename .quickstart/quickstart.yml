@@ -5,6 +5,8 @@ multi_connector_config:
     database_key: facebook_pages_database
     union_schema_key: facebook_pages_union_schemas
     model_variable: social_media_rollup__facebook_enabled
+    public_models:
+      - facebook_pages__pages_report
   instagram_business:
     database_key: instagram_business_database
     union_schema_key: instagram_business_union_schemas
@@ -21,6 +23,10 @@ multi_connector_config:
     database_key: youtube_analytics_database
     union_schema_key: youtube_analytics_union_schemas
     model_variable: social_media_rollup__youtube_enabled
+    public_models:
+      - youtube__age_demographics_pivot
+      - youtube__gender_demographics_pivot
+      - youtube__demographics_report
 
 table_variables:
   youtube__using_channel_demographics:
