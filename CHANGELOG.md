@@ -1,9 +1,19 @@
-# dbt_social_media_reporting v1.6.1
+# dbt_social_media_reporting v1.6.2
 
 [PR #42](https://github.com/fivetran/dbt_social_media_reporting/pull/42) includes the following updates:
 
 ## Feature Updates
 - Adds DuckDB as a supported destination.
+
+# dbt_social_media_reporting v1.6.1
+[PR #41](https://github.com/fivetran/dbt_social_media_reporting/pull/41) includes the following updates:
+
+## Feature Update
+- Updates Quickstart to surface the connector-level models that Social Media Reporting does not already build, so you can enable them directly from Quickstart:
+  - [`facebook_pages__pages_report`](https://fivetran.github.io/dbt_facebook_pages/#!/model/model.facebook_pages.facebook_pages__pages_report)
+  - [`youtube__age_demographics_pivot`](https://fivetran.github.io/dbt_youtube_analytics/#!/model/model.youtube_analytics.youtube__age_demographics_pivot)
+  - [`youtube__gender_demographics_pivot`](https://fivetran.github.io/dbt_youtube_analytics/#!/model/model.youtube_analytics.youtube__gender_demographics_pivot)
+  - [`youtube__demographics_report`](https://fivetran.github.io/dbt_youtube_analytics/#!/model/model.youtube_analytics.youtube__demographics_report)
 
 # dbt_social_media_reporting v1.6.0
 
