@@ -1,5 +1,11 @@
-# dbt_social_media_reporting v1.6.1
+# dbt_social_media_reporting v1.6.2
 
+[PR #42](https://github.com/fivetran/dbt_social_media_reporting/pull/42) includes the following updates:
+
+## Feature Updates
+- Adds DuckDB as a supported destination.
+
+# dbt_social_media_reporting v1.6.1
 [PR #41](https://github.com/fivetran/dbt_social_media_reporting/pull/41) includes the following updates:
 
 ## Feature Update

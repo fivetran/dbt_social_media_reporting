@@ -66,7 +66,7 @@ Each Quickstart transformation job run materializes the following model counts f
 To use this dbt package, you must have the following:
 
 - At least one Fivetran Social Media Reporting connection syncing data into your destination.
-- A BigQuery, Snowflake, Redshift, Postgres, or Databricks destination.
+- A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, **Databricks**, or **DuckDB** destination.
 
 **Connector**: Have at least one of the below supported Fivetran social media platform connections syncing data into your destination. This package currently supports:
 - [Facebook Pages](https://fivetran.com/docs/connectors/applications/facebook-pages)
