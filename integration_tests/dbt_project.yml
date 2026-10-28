@@ -96,7 +96,8 @@ seeds:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}" 
         ig_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
         user_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}" 
-        carousel_album_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}" 
+        carousel_album_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+        media_url: "{%- if target.type in ('redshift', 'postgres') -%} varchar(500) {%- else -%} string {%- endif -%}"
     instagram_business_media_insights_data:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}" 
