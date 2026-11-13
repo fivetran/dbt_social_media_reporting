@@ -1,0 +1,10 @@
+version: 1.6.3
+pr_number: 44
+under_the_hood:
+- description: Updates the `_dbt_source_relation` column description in the [social_media_reporting__rollup_report](https://fivetran.github.io/dbt_social_media_reporting/#!/model/model.social_media_reporting.social_media_reporting__rollup_report)
+    model so it reflects what the column actually contains.
+  details:
+  - The column is added by `dbt_utils.union_relations` and holds the fully qualified
+    name of the platform model each record comes from. It previously shared a description
+    with `source_relation`, which instead identifies the connector source.
+date: '2026-11-13'
