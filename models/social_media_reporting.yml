@@ -18,8 +18,13 @@ models:
         description: The URL of the post or video
       - name: source_relation
         description: The source of the record, if the unioning functionality is being used.
-      - name: _dbt_source_relation 
-        description: The source of the record, if the unioning functionality is being used.
+      - name: _dbt_source_relation
+        description: >
+          The fully qualified name of the platform model this record comes from, added by
+          `dbt_utils.union_relations` (for example,
+          `"your_database"."your_schema"."social_media_reporting__facebook_posts_reporting"`).
+
+          NOTE: To identify the platform, use the `platform` field instead.
       - name: platform
         description: The platform the post or video comes from
       - name: clicks
