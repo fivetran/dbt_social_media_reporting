@@ -1,3 +1,11 @@
+# dbt_social_media_reporting v1.6.3
+
+[PR #44](https://github.com/fivetran/dbt_social_media_reporting/pull/44) includes the following updates:
+
+## Under the Hood
+- Updates the `_dbt_source_relation` column description in the [social_media_reporting__rollup_report](https://fivetran.github.io/dbt_social_media_reporting/#!/model/model.social_media_reporting.social_media_reporting__rollup_report) model so it reflects what the column actually contains.
+  - The column is added by `dbt_utils.union_relations` and holds the fully qualified name of the platform model each record comes from. It previously shared a description with `source_relation`, which instead identifies the connector source.
+
 # dbt_social_media_reporting v1.6.2
 
 [PR #42](https://github.com/fivetran/dbt_social_media_reporting/pull/42) includes the following updates:
