@@ -7,7 +7,7 @@
 - Adds `dbt_utils.unique_combination_of_columns` tests to staging and end models. If a test fails, please [open an issue](https://github.com/fivetran/dbt_social_media_reporting/issues/new/choose).
 
 ## Under the Hood
-- Updates the `_dbt_source_relation` column description in the `social_media_reporting__rollup_report`.
+- Updates yml column documentation to match model output.
 
 # dbt_social_media_reporting v1.6.2
 
