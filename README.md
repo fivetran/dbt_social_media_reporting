@@ -253,7 +253,7 @@ This dbt package is dependent on the following dbt packages. These dependencies 
 ```yml
 packages:
     - package: fivetran/facebook_pages
-      version: [">=1.5.0", "<1.6.0"]
+      version: [">=1.4.0", "<1.5.0"]
 
     - package: fivetran/instagram_business
       version: [">=1.3.0", "<1.4.0"]

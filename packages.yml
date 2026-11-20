@@ -1,9 +1,9 @@
 packages:
   - git: https://github.com/fivetran/dbt_facebook_pages.git
     revision: feature/media-views-breakdowns
-    # Switch back to the hub release once dbt_facebook_pages 1.5.0 is published:
+    # Switch back to the hub release once dbt_facebook_pages 1.4.0 is published:
     # - package: fivetran/facebook_pages
-    #   version: [">=1.5.0", "<1.6.0"]
+    #   version: [">=1.4.0", "<1.5.0"]
 
   - git: https://github.com/fivetran/dbt_instagram_business.git
     revision: magicbot/fy27-updates

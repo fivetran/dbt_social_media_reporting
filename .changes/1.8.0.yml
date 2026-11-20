@@ -12,10 +12,6 @@ schema_data_changes:
     notes: Facebook deprecated its impressions metrics on November 15, 2025, so Facebook
       `impressions` showed near-zero values for recent posts. Facebook rows now hold
       Facebook media views. For older records, `media_views` falls back to `impressions`.
+      Requires Facebook Pages v1.4.0.
       Expect higher Facebook `impressions` values after you upgrade.
-dependencies:
-- package: fivetran/facebook_pages
-  old_version: '[">=1.4.0", "<1.5.0"]'
-  new_version: '[">=1.5.0", "<1.6.0"]'
-  description: Adds support for the `media_views` field and media view breakdowns.
 date: '2026-11-20'
