@@ -1,5 +1,5 @@
 name: 'social_media_rollup_integration_tests'
-version: '1.7.0'
+version: '1.8.0'
 profile: 'integration_tests'
 config-version: 2
 
@@ -33,6 +33,9 @@ vars:
     facebook_pages_lifetime_post_metrics_total_identifier: "facebook_pages_lifetime_post_metrics_total_data"
     facebook_pages_page_identifier: "facebook_pages_page_data"
     facebook_pages_post_history_identifier: "facebook_pages_post_history_data"
+    facebook_pages_lifetime_post_metrics_by_paid_organic_identifier: "facebook_pages_lifetime_post_metrics_by_paid_organic_data"
+    facebook_pages_lifetime_post_metrics_by_followers_identifier: "facebook_pages_lifetime_post_metrics_by_followers_data"
+    facebook_pages_daily_page_metrics_by_paid_organic_identifier: "facebook_pages_daily_page_metrics_by_paid_organic_data"
   youtube_analytics:
     youtube_analytics_schema: social_media_rollup_integration_tests
     youtube_analytics_channel_basic_a_2_identifier: "youtube_channel_basic_data"
@@ -122,6 +125,21 @@ seeds:
       +column_types:
         page_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
         page_media_view: float
+    facebook_pages_lifetime_post_metrics_by_paid_organic_data:
+      +column_types:
+        post_id: "{{ 'string' if target.type in ['bigquery', 'spark', 'databricks'] else 'varchar' }}"
+        is_from_ads: boolean
+        post_media_view: integer
+    facebook_pages_lifetime_post_metrics_by_followers_data:
+      +column_types:
+        post_id: "{{ 'string' if target.type in ['bigquery', 'spark', 'databricks'] else 'varchar' }}"
+        is_from_followers: boolean
+        post_media_view: integer
+    facebook_pages_daily_page_metrics_by_paid_organic_data:
+      +column_types:
+        page_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+        is_from_ads: boolean
+        page_media_view: integer
 
     youtube_channel_basic_data:
       +column_types:
