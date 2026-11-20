@@ -1,8 +1,18 @@
 version: 1.8.0
-pr_number: 0
-breaking_changes:
-- title: Facebook impressions now use media views
-  description: For Facebook rows, the `impressions` field in `social_media_reporting__rollup_report` now holds Facebook media views (`media_views` from `facebook_pages__posts_report`). Facebook deprecated its impressions metrics on November 15, 2025, so the old field reported near-zero values for recent posts. For older records, `media_views` falls back to `impressions`. Expect higher Facebook `impressions` values after you upgrade.
+pr_number: 46
+schema_data_changes:
+  entries:
+  - models:
+    - '`social_media_reporting__rollup_report`'
+    - '`social_media_reporting__facebook_posts_reporting`'
+    change_type: Changed field logic
+    old: For Facebook rows, `impressions` reads `impressions` from `facebook_pages__posts_report`
+    new: For Facebook rows, `impressions` reads `media_views` from `facebook_pages__posts_report`
+    is_breaking: true
+    notes: Facebook deprecated its impressions metrics on November 15, 2025, so Facebook
+      `impressions` showed near-zero values for recent posts. Facebook rows now hold
+      Facebook media views. For older records, `media_views` falls back to `impressions`.
+      Expect higher Facebook `impressions` values after you upgrade.
 dependencies:
 - package: fivetran/facebook_pages
   old_version: '[">=1.4.0", "<1.5.0"]'
