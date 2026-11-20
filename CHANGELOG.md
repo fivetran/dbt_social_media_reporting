@@ -1,3 +1,21 @@
+# dbt_social_media_reporting v1.7.0
+
+[PR #45](https://github.com/fivetran/dbt_social_media_reporting/pull/45) includes the following updates:
+
+## Feature Update
+- **Breaking change**: Raises the minimum dbt version to 1.10.0.
+- Adds `dbt_utils.unique_combination_of_columns` tests to staging and end models. If a test fails, please [open an issue](https://github.com/fivetran/dbt_social_media_reporting/issues/new/choose).
+
+## Dependency Updates
+- Bumps `fivetran/facebook_pages` from [">=1.3.0", "<1.4.0"] to [">=1.4.0", "<1.5.0"] — Adds support for the latest upstream release.
+- Bumps `fivetran/instagram_business` from [">=1.2.0", "<1.3.0"] to [">=1.3.0", "<1.4.0"] — Adds support for the latest upstream release.
+- Bumps `fivetran/twitter_organic` from [">=1.2.0", "<1.3.0"] to [">=1.3.0", "<1.4.0"] — Adds support for the latest upstream release.
+- Bumps `fivetran/linkedin_pages` from [">=1.5.0", "<1.6.0"] to [">=1.6.0", "<1.7.0"] — Adds support for the latest upstream release.
+- Bumps `fivetran/youtube_analytics` from [">=1.2.0", "<1.3.0"] to [">=1.3.0", "<1.4.0"] — Adds support for the latest upstream release.
+
+## Under the Hood
+- Updates yml column documentation to match model output.
+
 # dbt_social_media_reporting v1.6.2
 
 [PR #42](https://github.com/fivetran/dbt_social_media_reporting/pull/42) includes the following updates:

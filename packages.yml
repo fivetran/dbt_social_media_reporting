@@ -1,15 +1,30 @@
 packages:
-  - package: fivetran/facebook_pages
-    version: [">=1.3.0", "<1.4.0"]
+  - git: https://github.com/fivetran/dbt_facebook_pages.git
+    revision: magicbot/fy27-updates
+    # Switch back to the hub release once dbt_facebook_pages 1.4.0 is published:
+    # - package: fivetran/facebook_pages
+    #   version: [">=1.4.0", "<1.5.0"]
 
-  - package: fivetran/instagram_business
-    version: [">=1.2.0", "<1.3.0"]
+  - git: https://github.com/fivetran/dbt_instagram_business.git
+    revision: magicbot/fy27-updates
+    # Switch back to the hub release once dbt_instagram_business 1.3.0 is published:
+    # - package: fivetran/instagram_business
+    #   version: [">=1.3.0", "<1.4.0"]
 
-  - package: fivetran/twitter_organic
-    version: [">=1.2.0", "<1.3.0"]
+  - git: https://github.com/fivetran/dbt_twitter_organic.git
+    revision: magicbot/fy27-updates
+    # Switch back to the hub release once dbt_twitter_organic 1.3.0 is published:
+    # - package: fivetran/twitter_organic
+    #   version: [">=1.3.0", "<1.4.0"]
 
-  - package: fivetran/linkedin_pages
-    version: [">=1.5.0", "<1.6.0"]
+  - git: https://github.com/fivetran/dbt_linkedin_pages.git
+    revision: magicbot/fy27-updates
+    # Switch back to the hub release once dbt_linkedin_pages 1.6.0 is published:
+    # - package: fivetran/linkedin_pages
+    #   version: [">=1.6.0", "<1.7.0"]
 
-  - package: fivetran/youtube_analytics
-    version: [">=1.2.0", "<1.3.0"]
+  - git: https://github.com/fivetran/dbt_youtube_analytics.git
+    revision: magicbot/fy27-updates
+    # Switch back to the hub release once dbt_youtube_analytics 1.3.0 is published:
+    # - package: fivetran/youtube_analytics
+    #   version: [">=1.3.0", "<1.4.0"]
