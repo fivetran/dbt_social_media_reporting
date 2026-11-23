@@ -9,13 +9,11 @@ schema_data_changes:
     old: For Facebook rows, `impressions` reads `impressions` from `facebook_pages__posts_report`
     new: For Facebook rows, `impressions` reads `media_views` from `facebook_pages__posts_report`
     is_breaking: true
-    notes: >-
-      Facebook deprecated its impressions metrics on November 15, 2025, so Facebook
+    notes: 'Facebook deprecated its impressions metrics on November 15, 2025, so Facebook
       `impressions` showed near-zero values for recent posts. Facebook rows now hold
       Facebook media views. For older records, `media_views` falls back to `impressions`.
-      Requires Facebook Pages v1.4.0. Added in
-      [PR #46](https://github.com/fivetran/dbt_social_media_reporting/pull/46).
-      Expect higher Facebook `impressions` values after you upgrade.
+      Requires Facebook Pages v1.4.0. Added in [PR #46](https://github.com/fivetran/dbt_social_media_reporting/pull/46).
+      Expect higher Facebook `impressions` values after you upgrade.'
 new_features:
 - title: Breaking change
   description: Raises the minimum dbt version to 1.10.0.
