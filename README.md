@@ -56,7 +56,7 @@ Each Quickstart transformation job run materializes the following model counts f
 | [Instagram Business](https://github.com/fivetran/dbt_instagram_business) | 7 |
 | [LinkedIn Company Pages](https://github.com/fivetran/dbt_linkedin_pages) | 23 |
 | [Twitter Organic](https://github.com/fivetran/dbt_twitter_organic) | 11 |
-| [Youtube Analytics](https://github.com/fivetran/dbt_youtube_analytics) | 13 |
+| [Youtube Analytics](https://github.com/fivetran/dbt_youtube_analytics) | 11 |
 
 ¹ Each Quickstart transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
 
