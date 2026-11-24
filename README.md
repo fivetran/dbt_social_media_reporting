@@ -229,16 +229,6 @@ models:
         +enabled: false
 ```
 
-#### Disabling Facebook Pages media view tables
-The Facebook Pages package reads three tables for media view breakdowns. If you don't sync one of these tables, set its variable to `false`:
-
-```yml
-vars:
-    facebook_pages__using_lifetime_post_metrics_by_paid_organic: false # Disable if you don't sync lifetime_post_metrics_by_paid_organic
-    facebook_pages__using_lifetime_post_metrics_by_followers: false # Disable if you don't sync lifetime_post_metrics_by_followers
-    facebook_pages__using_daily_page_metrics_by_paid_organic: false # Disable if you don't sync daily_page_metrics_by_paid_organic
-```
-
 ### (Optional) Additional configurations
 #### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
