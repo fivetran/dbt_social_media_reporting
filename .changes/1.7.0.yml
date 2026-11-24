@@ -15,6 +15,10 @@ schema_data_changes:
       Requires Facebook Pages v1.4.0. Added in [PR #46](https://github.com/fivetran/dbt_social_media_reporting/pull/46).
       Expect higher Facebook `impressions` values after you upgrade.'
 new_features:
+- description: Adds the `facebook_pages__using_lifetime_post_metrics_by_paid_organic`,
+    `facebook_pages__using_lifetime_post_metrics_by_followers`, and `facebook_pages__using_daily_page_metrics_by_paid_organic`
+    variables to Quickstart, so Quickstart enables each Facebook Pages media view table only when you sync it.
+    See the README for how to disable these tables outside Quickstart.
 - title: Breaking change
   description: Raises the minimum dbt version to 1.10.0.
 - description: Adds `dbt_utils.unique_combination_of_columns` tests to staging and

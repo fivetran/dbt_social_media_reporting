@@ -52,11 +52,11 @@ Each Quickstart transformation job run materializes the following model counts f
 | **Connector** | **Model Count** |
 | ------------- | --------------- |
 | Social Media Reporting | 6 |
-| [Facebook Pages](https://github.com/fivetran/dbt_facebook_pages) | 11 |
+| [Facebook Pages](https://github.com/fivetran/dbt_facebook_pages) | 17 |
 | [Instagram Business](https://github.com/fivetran/dbt_instagram_business) | 7 |
 | [LinkedIn Company Pages](https://github.com/fivetran/dbt_linkedin_pages) | 23 |
 | [Twitter Organic](https://github.com/fivetran/dbt_twitter_organic) | 11 |
-| [Youtube Analytics](https://github.com/fivetran/dbt_youtube_analytics) | 11 |
+| [Youtube Analytics](https://github.com/fivetran/dbt_youtube_analytics) | 13 |
 
 ¹ Each Quickstart transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
 
@@ -227,6 +227,16 @@ models:
     # disable youtube analytics models if not using youtube analytics
     youtube_analytics:
         +enabled: false
+```
+
+#### Disabling Facebook Pages media view tables
+The Facebook Pages package reads three tables for media view breakdowns. If you don't sync one of these tables, set its variable to `false`:
+
+```yml
+vars:
+    facebook_pages__using_lifetime_post_metrics_by_paid_organic: false # Disable if you don't sync lifetime_post_metrics_by_paid_organic
+    facebook_pages__using_lifetime_post_metrics_by_followers: false # Disable if you don't sync lifetime_post_metrics_by_followers
+    facebook_pages__using_daily_page_metrics_by_paid_organic: false # Disable if you don't sync daily_page_metrics_by_paid_organic
 ```
 
 ### (Optional) Additional configurations
