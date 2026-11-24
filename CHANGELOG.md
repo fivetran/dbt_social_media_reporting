@@ -10,6 +10,7 @@
 | `social_media_reporting__rollup_report`<br>`social_media_reporting__facebook_posts_reporting`<br>(Breaking) | Changed field logic | For Facebook rows, `impressions` reads `impressions` from `facebook_pages__posts_report` | For Facebook rows, `impressions` reads `media_views` from `facebook_pages__posts_report` | Facebook deprecated its impressions metrics on November 15, 2025, so Facebook `impressions` showed near-zero values for recent posts. Facebook rows now hold Facebook media views. For older records, `media_views` falls back to `impressions`. Requires Facebook Pages v1.4.0. Added in [PR #46](https://github.com/fivetran/dbt_social_media_reporting/pull/46). Expect higher Facebook `impressions` values after you upgrade. |
 
 ## Feature Update
+- Adds the `facebook_pages__using_lifetime_post_metrics_by_paid_organic`, `facebook_pages__using_lifetime_post_metrics_by_followers`, and `facebook_pages__using_daily_page_metrics_by_paid_organic` variables to Quickstart, so Quickstart enables each Facebook Pages media view table only when you sync it.
 - **Breaking change**: Raises the minimum dbt version to 1.10.0.
 - Adds `dbt_utils.unique_combination_of_columns` tests to staging and end models. If a test fails, please [open an issue](https://github.com/fivetran/dbt_social_media_reporting/issues/new/choose).
 
