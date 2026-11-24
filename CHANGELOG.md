@@ -1,3 +1,29 @@
+# dbt_social_media_reporting v1.7.0
+
+[PR #45](https://github.com/fivetran/dbt_social_media_reporting/pull/45) includes the following updates:
+
+## Schema/Data Change
+**1 total change • 1 possible breaking change**
+
+| Data Model(s) | Change type | Old | New | Notes |
+| ------------- | ----------- | --- | --- | ----- |
+| `social_media_reporting__rollup_report`<br>`social_media_reporting__facebook_posts_reporting`<br>(Breaking) | Changed field logic | For Facebook rows, `impressions` reads `impressions` from `facebook_pages__posts_report` | For Facebook rows, `impressions` reads `media_views` from `facebook_pages__posts_report` | Facebook deprecated its impressions metrics on November 15, 2025, so Facebook `impressions` showed near-zero values for recent posts. Facebook rows now hold Facebook media views. For older records, `media_views` falls back to `impressions`. Requires Facebook Pages v1.4.0. Added in [PR #46](https://github.com/fivetran/dbt_social_media_reporting/pull/46). Expect higher Facebook `impressions` values after you upgrade. |
+
+## Feature Update
+- Adds the `facebook_pages__using_lifetime_post_metrics_by_paid_organic`, `facebook_pages__using_lifetime_post_metrics_by_followers`, and `facebook_pages__using_daily_page_metrics_by_paid_organic` variables to Quickstart, so Quickstart enables each Facebook Pages media view table only when you sync it.
+- **Breaking change**: Raises the minimum dbt version to 1.10.0.
+- Adds `dbt_utils.unique_combination_of_columns` tests to staging and end models. If a test fails, please [open an issue](https://github.com/fivetran/dbt_social_media_reporting/issues/new/choose).
+
+## Dependency Updates
+- Bumps `fivetran/facebook_pages` from [">=1.3.0", "<1.4.0"] to [">=1.4.0", "<1.5.0"] — Adds support for the latest upstream release.
+- Bumps `fivetran/instagram_business` from [">=1.2.0", "<1.3.0"] to [">=1.3.0", "<1.4.0"] — Adds support for the latest upstream release.
+- Bumps `fivetran/twitter_organic` from [">=1.2.0", "<1.3.0"] to [">=1.3.0", "<1.4.0"] — Adds support for the latest upstream release.
+- Bumps `fivetran/linkedin_pages` from [">=1.5.0", "<1.6.0"] to [">=1.6.0", "<1.7.0"] — Adds support for the latest upstream release.
+- Bumps `fivetran/youtube_analytics` from [">=1.2.0", "<1.3.0"] to [">=1.3.0", "<1.4.0"] — Adds support for the latest upstream release.
+
+## Under the Hood
+- Updates yml column documentation to match model output.
+
 # dbt_social_media_reporting v1.6.2
 
 [PR #42](https://github.com/fivetran/dbt_social_media_reporting/pull/42) includes the following updates:

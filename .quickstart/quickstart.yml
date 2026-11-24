@@ -1,4 +1,4 @@
-dbt_versions: '>=1.3.0 <3.0.0'
+dbt_versions: '>=1.10.0 <3.0.0'
 
 multi_connector_config:
   facebook_pages:
@@ -29,6 +29,12 @@ multi_connector_config:
       - youtube__demographics_report
 
 table_variables:
+  facebook_pages__using_lifetime_post_metrics_by_paid_organic:
+    - lifetime_post_metrics_by_paid_organic
+  facebook_pages__using_lifetime_post_metrics_by_followers:
+    - lifetime_post_metrics_by_followers
+  facebook_pages__using_daily_page_metrics_by_paid_organic:
+    - daily_page_metrics_by_paid_organic
   youtube__using_channel_demographics:
     - channel_demographics_a_1
 
