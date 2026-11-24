@@ -18,7 +18,7 @@ with report as (
         source_relation,
         'facebook' as platform,
         coalesce(sum(clicks),0) as clicks,
-        coalesce(sum(media_views),0) as impressions,
+        cast(coalesce(sum(media_views),0) as {{ dbt.type_bigint() }}) as impressions,
         coalesce(sum(likes),0) as likes
     from report
     {{ dbt_utils.group_by(8) }}
