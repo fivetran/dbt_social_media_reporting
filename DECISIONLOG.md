@@ -14,3 +14,14 @@ Fivetran's Instagram Connector populates multiple fields with the same value for
 - `VIDEO` (Reels): Both `reel_views` AND `video_photo_views` contain identical values
 
 To prevent double-counting, the `impressions` calculation in `social_media_reporting__instagram_posts_reporting` counts only `video_photo_views` or `video_photo_impressions`, which is the basis for both `carousel_album` and `reel` impressions/views.
+
+## Transition from Impressions to Media Views for Facebook Pages
+Facebook deprecated its impressions metrics on November 15, 2025. Since then, the impressions fields in the Facebook Pages connector are empty or near zero for recent records.
+
+**Decision**  
+For Facebook rows, the `impressions` field in this rollup package reads `media_views` from `facebook_pages__posts_report`. This keeps the `impressions` field populated and consistent with the other social media platforms.
+
+In Facebook Pages v1.4.0, `media_views` falls back to the deprecated `impressions` field for older records. Historical Facebook rows keep their values.
+
+**Important Note on the Switchover**  
+Facebook counts media views and impressions differently. Expect a level shift in Facebook `impressions` around the switchover. The `impressions` field for other platforms is unchanged.
